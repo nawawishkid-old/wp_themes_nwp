@@ -7,3 +7,40 @@ Description: My theme description goes here
 Version: 1.0
 Text Domain: nwp
 */
+
+/**
+ * Bootstrap
+ */
+
+/**
+ * Post
+ */
+.post header {
+	max-height: 600px;
+	overflow: hidden;
+}
+.post header img {
+	max-width: 1024px;
+	width: 100%;
+	display: block;
+	margin: auto;
+}
+.readable {
+	max-width: 700px;
+	margin: 1em;
+	margin: auto;
+}
+[class^="post-featured-img"] img {
+	height: 400px;
+}
+
+/**
+ * Comment
+ */
+.comment-author-img img {
+	height: 32px;
+	border-radius: 50%;
+}
+.comment-form textarea {
+	height: 100px;
+}
