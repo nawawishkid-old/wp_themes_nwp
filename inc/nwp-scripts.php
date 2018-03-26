@@ -13,3 +13,7 @@ add_action( 'comment_form_before', function() {
         wp_enqueue_script( 'comment-reply' ); 
     }
 });
+
+add_action( 'after_setup_theme', function() {
+	load_theme_textdomain( 'nwp', get_template_directory() . '/languages' );
+});

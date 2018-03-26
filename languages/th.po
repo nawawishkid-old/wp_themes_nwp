@@ -1,0 +1,26 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: NWP v1.0\n"
+"POT-Creation-Date: 2018-03-27 04:50+0700\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: th_TH\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_x;_ex;_n;_nx;_n_noop;_nx_noop;_;"
+"translate_nooped_plural\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: content-comments.php:9
+msgid "Discussion"
+msgstr "พูดคุยกันนะจ๊ะ"
+
+#: content-comments.php:20
+msgid "Hello"
+msgstr "สวัสดี"

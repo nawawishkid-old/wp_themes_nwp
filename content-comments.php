@@ -6,7 +6,7 @@ $comments = get_comments( $args ); ?>
 
 <article class="comments">
 	<header>
-		<p>Discussion (<?php echo get_comments_number(); ?>)</p>
+		<p><?php _e( 'Discussion', 'nwp' ) . ' (' . get_comments_number() . ')'; ?></p>
 	</header>
 	<article>
 <?php
