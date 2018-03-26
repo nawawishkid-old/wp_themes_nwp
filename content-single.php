@@ -4,11 +4,12 @@
 		<img src="<?php echo get_the_post_thumbnail_url(); ?>">
 		<?php endif; ?>
 	</header>
-	<h1 class="title readable"><?php the_title(); ?></h1>
-	<article class="readable">
+	<h1 class="title readable px-3 px-md-0"><?php the_title(); ?></h1>
+	<article class="readable px-3 px-md-0 mb-4">
 		<?php the_content(); ?>
 	</article>
-	<footer class="readable">
+	<hr>
+	<footer class="readable px-3 px-md-0 mb-4">
 		<?php 
 			get_template_part( 'content', 'comments' );
 		?>

@@ -4,11 +4,11 @@ $args = [
 ];
 $comments = get_comments( $args ); ?>
 
-<article class="post-comments">
-	<div class="post-comments-header">
+<article class="comments">
+	<header>
 		<p>Discussion (<?php echo get_comments_number(); ?>)</p>
-	</div>
-	<div class="post-comments-body">
+	</header>
+	<article>
 <?php
 //print_r($comments);
 	foreach ( $comments as $comment ) : 
@@ -17,46 +17,46 @@ $comments = get_comments( $args ); ?>
 		$format = ( ( time() - $timestamp ) / ( 60 * 60 * 24 ) ) > 365 ? 'M d, y' : 'M d';
 		$date = date( $format, $timestamp );
 ?>
-		<div class="card comment p-3 mb-2">
-			<div class="card-title comment-header clearfix">
-				<span class="comment-author-img pr-2">
+		<article class="comment p-3 mb-2">
+			<header class="clearfix mb-3">
+				<div class="author float-left">
 					<a href="<?php echo $profile; ?>">
-						<img src="<?php echo get_avatar_url( $comment->comment_author_email ); ?>">
+						<img class="pr-2" 
+							 src="<?php echo get_avatar_url( $comment->comment_author_email ); ?>">
 					</a>
-				</span>
-				<span class="comment-author">
 					<a href="<?php echo $profile; ?>">
 						<?php echo $comment->comment_author; ?>
 					</a>
-				</span>
-				<small class="comment-date float-right">
+				</div>
+				<small class="date float-right">
 					<?php echo $date; ?>
 				</small>
-			</div>
+			</header>
 
-		 	<article class="comment-content px-3 pl-4 pb-3">
+		 	<article class="px-3 pl-4 pb-3">
 		 		<?php echo $comment->comment_content; ?>
 		 	</article>
 
-		 </div>
+		 </article>
 <?php 
 	endforeach;
 ?>
-	</div>
-	<div class="post-comment-footer">
+	</article>
+	<footer>
 		<?php 
 			$comments_args = [
-				'class_form' => 'comment-form card p-3',
+				'class_form' => 'add-new p-3',
 				'class_submit' => 'btn btn-outline-primary btn-block',
 		        'label_submit'=> 'Send',
 		        'title_reply'=> '',
 		        'comment_notes_before' => '',
 		        'comment_field' => '
 		        	<div class="form-group">
-			        	<textarea id="comment" 
+			        	<textarea id="add_comment" 
 			        				class="form-control" 
 			        				name="comment" 
-			        				aria-required="true">Discuss it!</textarea>
+			        				aria-required="true"
+			        				placeholder="Discuss it!"></textarea>
 			        </div>',
 		        'fields' => [
 		        	'author' => '
@@ -74,5 +74,5 @@ $comments = get_comments( $args ); ?>
 
 			comment_form($comments_args); 
 		?>
-	</div>
+	</footer>
 </article>
