@@ -16,8 +16,9 @@ $comments = get_comments( $args ); ?>
 		$timestamp = strtotime( $comment->comment_date );
 		$format = ( ( time() - $timestamp ) / ( 60 * 60 * 24 ) ) > 365 ? 'M d, y' : 'M d';
 		$date = date( $format, $timestamp );
+		$id = get_comment_ID();
 ?>
-		<article class="comment p-3 mb-2">
+		<article id="comment-<?php echo $id; ?>" class="comment p-3 mb-2">
 			<header class="clearfix mb-3">
 				<div class="author float-left">
 					<a href="<?php echo $profile; ?>">
@@ -36,6 +37,18 @@ $comments = get_comments( $args ); ?>
 		 	<article class="px-3 pl-4 pb-3">
 		 		<?php echo $comment->comment_content; ?>
 		 	</article>
+
+		 	<footer class="clearfix">
+		 		<small class="float-right">
+			 		<?php
+			 			$reply_args = [
+			 				'depth' => 5,
+			 				'max_depth' => 10
+			 			];
+			 			comment_reply_link( $reply_args, get_comment_ID(), get_the_ID()  ); 
+				 	?>
+				 </small>
+		 	</footer>
 
 		 </article>
 <?php 

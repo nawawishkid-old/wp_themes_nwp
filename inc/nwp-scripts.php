@@ -7,3 +7,9 @@ add_action( 'wp_enqueue_scripts', function() {
 	wp_enqueue_style( 'nwp-style', get_stylesheet_uri() );
 	wp_enqueue_script( 'nwp-comment', $dir . 'js/nwp-comment.js' );
 });
+
+add_action( 'comment_form_before', function() {
+    if ( get_option( 'thread_comments' ) ) { 
+        wp_enqueue_script( 'comment-reply' ); 
+    }
+});

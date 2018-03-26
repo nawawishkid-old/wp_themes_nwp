@@ -26,11 +26,11 @@ Text Domain: nwp
 /**
  * Post
  */
-.post > header {
+#post > header {
 	max-height: 600px;
 	overflow: hidden;
 }
-.post > header > img {
+#post > header > img {
 	max-width: 1024px;
 	width: 100%;
 	display: block;
@@ -40,13 +40,13 @@ Text Domain: nwp
 /**
  * Post comments
  */
-.post .comments .comment {
+#post .comments .comment {
 	border-bottom: 1px solid rgba(0,0,0,.125);
 }
-.post .comments .comment .author img {
+#post .comments .comment .author img {
 	height: 32px;
 	border-radius: 50%;
 }
-.post .comments footer .add-new textarea {
+#post .comments footer .add-new textarea {
 	min-height: 100px;
 }

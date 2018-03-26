@@ -1,4 +1,4 @@
-<article class="post">
+<article id="post">
 	<header class="">
 		<?php if ( has_post_thumbnail() ) : ?>
 		<img src="<?php echo get_the_post_thumbnail_url(); ?>">
