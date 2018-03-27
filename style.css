@@ -144,6 +144,11 @@ body > footer {
 	margin: auto;
 }
 
+/* Post item */
+.post-item .card {
+	max-width: ;
+}
+
 /**
  * Post comments
  */
@@ -156,7 +161,7 @@ body > footer {
 	margin-left: auto;
 	border-left: 3px solid rgba(0,0,0,.125);
 }
-#post .author img {
+.author img {
 	height: 32px;
 	padding-right: .75em;
 	border-radius: 50%;

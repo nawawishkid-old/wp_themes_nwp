@@ -1,7 +1,3 @@
-<div class="post-item">
-	<!-- thumbnail, title, excerpt, author, date/time, category -->
-</div>
-
 <div class="card">
 	<div class="card-header">
 		<?php if ( has_post_thumbnail() ) : ?>
