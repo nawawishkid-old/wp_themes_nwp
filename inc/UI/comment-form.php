@@ -1,4 +1,5 @@
 <?php 
+
 if ( ! comments_open() ) : ?>
 
 	<h3><?php _e( 'Comments are not allowed on this post.', 'nwp' ); ?></h3>
@@ -38,16 +39,25 @@ $input_email = <<<EMAIL
 EMAIL;
 
 $submit_field = <<<SFIELD
-<p class="form-submit float-right">
-	<button class="btn" type="button">$cancel</button>
+<div class="form-submit float-right">
 	%1\$s %2\$s
-</p>
+	<input name="submit" type="submit" id="submit" class="btn btn-outline-primary" value="$submit">
+</div>
 SFIELD;
+
+add_filter( 'comment_id_fields', function( $result, $id, $replytoid ) {
+	$result = "<button data-commentid=\"$id\" class=\"btn cancel d-none\" type=\"button\">" . __( 'Cancel', 'nwp' ) . "</button>";
+	$result .= "<input type=\"hidden\" name=\"comment_post_ID\" value=\"$id\" class=\"comment-post-id\" />\n";
+	$result .= "<input type=\"hidden\" name=\"comment_parent\" class=\"comment-parent-id\" value=\"$replytoid\" />\n";
+
+	return $result;
+}, 10, 3);
 
 $comments_args = [
 	'class_form' => 'add-new p-3 clearfix',
-	'class_submit' => 'btn btn-outline-primary',
-    'label_submit'=> $submit,
+	//'class_submit' => 'btn btn-outline-primary',
+    //'label_submit'=> $submit,
+    'submit_button' => '',
     'title_reply'=> '',
     'title_reply_before' => '',
     'title_reply_after' => '',

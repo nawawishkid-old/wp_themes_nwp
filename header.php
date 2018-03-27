@@ -10,5 +10,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<header></header>
+	<?php get_template_part( 'inc/UI/nav' ); ?>
+	<header>
+	</header>
 	<main>

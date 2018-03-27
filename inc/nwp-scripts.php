@@ -18,14 +18,6 @@ add_action( 'after_setup_theme', function() {
 	load_theme_textdomain( 'nwp', get_template_directory() . '/languages' );
 });
 
-add_action( 'comment_form_top', function() {
-	echo '<h1>Hello!</h1>';
-});
-
-/*add_filter( 'comment_form_submit_button', function( $btn, $args ) {
-	return 10;
-}, 10, 2);*/
-
 
 
 /**

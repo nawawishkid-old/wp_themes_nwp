@@ -23,7 +23,7 @@
 		</div>
 		<!-- author img, author name, date/time, category -->
 	</section>
-	<article class="readable px-3 px-md-0 mb-4">
+	<article class="readable px-3 px-md-0 my-5">
 		<?php the_content(); ?>
 	</article>
 	<hr>

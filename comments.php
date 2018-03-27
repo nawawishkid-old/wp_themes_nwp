@@ -8,7 +8,7 @@ if ( ! have_comments() ) : ?>
 	<h3><?php _e( 'No comments yet.', 'nwp' ); ?></h3>
 
 <?php
-	get_template_part( 'comment', 'form' );
+	get_template_part( 'inc/UI/comment', 'form' );
 	return;
 
 endif;
@@ -23,7 +23,7 @@ $comments = get_comments( $args ); ?>
 <?php
 //pretty_print( $comments );
 ?>
-<article class="comments">
+<article id="comments">
 	<header>
 		<h4>
 			<?php echo __( 'Discussion', 'nwp' ) . ' (' . get_comments_number() . ')'; ?>

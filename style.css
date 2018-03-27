@@ -14,8 +14,43 @@ I intend to write this stylesheet in a more semantic and readable way.
  * Variable
  */
 :root {
+	/* color */
+	--pri: rgb(0, 150, 255); /*#0087BD;*/
+	--pri-light: rgb(0, 170, 255);
+	--pri-dark: rgb(0, 120, 200);
+	--sec: ;
+	--sec-light: ;
+	--sec-dark: ;
+	--black: rgb(56, 56, 56);
+	--gray: rgb(153, 153, 153);
+	--white: rgb(255, 255, 255);
+	/* font */
+	--font-size: 14px;
+	--line-height: 18px;
+	/* component */
+	--nav-height: 52px;
 
+	--border-radius: .25rem;
 }
+
+/**
+ * Generalization
+ */
+/* Text */
+body {
+	font-size: var(--font-size);
+	line-height: var(--line-height);
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: bold;
+	color: var(--black);
+}
+p, a, a:hover, a:visited {
+	color: var(--black);
+	text-decoration: none;
+}
+span, small { color: var(--gray); }
+/* Section */
 
 /**
  * Global class
@@ -23,6 +58,76 @@ I intend to write this stylesheet in a more semantic and readable way.
 .readable {
 	max-width: 700px;
 	margin: 1em auto;
+}
+.clickable { color: var(--pri); }
+.clickable .prt-1 { border-bottom: 1px solid var(--pri); }
+.clickable .prt-2,
+.clickable .prt-3 {
+	border: 1px solid var(--pri);
+	border-radius: 3px;
+}
+.clickable .prt-3 {
+	background-color: var(--pri);
+	color: var(--white);
+	font-weight: bold;
+}
+
+/**
+ * Nav
+ */
+#navPlaceHolder {
+	height: var(--nav-height);
+}
+nav#navBar {
+}
+nav#navBar.fixed {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1;
+}
+nav#navBar > div {
+	height: var(--nav-height);
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: var(--white);
+	border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+nav#navBar > div > * {
+	display: inline-flex;
+	align-items: center;
+}
+
+/**
+ * Search
+ */
+.search {
+	max-width: 240px;
+	height: 100%;
+	border: 1px solid rgba(0,0,0,0.1);
+	border-radius: var(--border-radius);
+}
+.search .icon {
+	width: 24px;
+	height: 24px;
+}
+.search input {
+	width: calc(100% - var(--line-height));
+	border: none;
+	text-indent: .5rem;
+}
+.search input:focus {
+	outline: none;
+	border: none;
+}
+
+/**
+ * Footer
+ */
+body > footer {
+	min-height: 200px;
+	background-color: var(--pri-dark);
 }
 
 /**
@@ -42,10 +147,11 @@ I intend to write this stylesheet in a more semantic and readable way.
 /**
  * Post comments
  */
-#post .comments .comment {
+#comments .comment > footer,
+.comment .thread > footer {
 	border-bottom: 1px solid rgba(0,0,0,.125);
 }
-#post .comments .comment .thread {
+#comments .comment .thread {
 	width: calc(100% - 1em);
 	margin-left: auto;
 	border-left: 3px solid rgba(0,0,0,.125);
@@ -55,9 +161,9 @@ I intend to write this stylesheet in a more semantic and readable way.
 	padding-right: .75em;
 	border-radius: 50%;
 }
-#post .comments .add-new textarea {
+#comments .add-new textarea {
 	min-height: 100px;
 }
-#post .comments .add-new .btn {
+#comments .add-new .btn {
 	width: 100px;
 }
