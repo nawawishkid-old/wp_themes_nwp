@@ -6,11 +6,11 @@ $comments = get_comments( $args ); ?>
 
 <article class="comments">
 	<header>
-		<p><?php _e( 'Discussion', 'nwp' ) . ' (' . get_comments_number() . ')'; ?></p>
+		<p><?php echo __( 'Discussion', 'nwp' ) . ' (' . get_comments_number() . ')'; ?></p>
 	</header>
 	<article>
 <?php
-//print_r($comments);
+
 	foreach ( $comments as $comment ) : 
 		$profile = $comment->comment_author_url;
 		$timestamp = strtotime( $comment->comment_date );
@@ -59,8 +59,8 @@ $comments = get_comments( $args ); ?>
 		<?php 
 			$comments_args = [
 				'class_form' => 'add-new p-3',
-				'class_submit' => 'btn btn-outline-primary btn-block',
-		        'label_submit'=> 'Send',
+				'class_submit' => 'btn btn-outline-primary d-block ml-auto',
+		        'label_submit'=> __( 'Send', 'nwp' ),
 		        'title_reply'=> '',
 		        'comment_notes_before' => '',
 		        'comment_field' => '
@@ -69,7 +69,7 @@ $comments = get_comments( $args ); ?>
 			        				class="form-control" 
 			        				name="comment" 
 			        				aria-required="true"
-			        				placeholder="Discuss it!"></textarea>
+			        				placeholder="' . __( 'Discuss it!', 'nwp' ) . '"></textarea>
 			        </div>',
 		        'fields' => [
 		        	'author' => '

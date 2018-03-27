@@ -6,6 +6,8 @@ Author URI: https://nawawish.com
 Description: My theme description goes here
 Version: 1.0
 Text Domain: nwp
+
+I intend to write this stylesheet in a more semantic and readable way.
 */
 
 /**
@@ -49,4 +51,7 @@ Text Domain: nwp
 }
 #post .comments footer .add-new textarea {
 	min-height: 100px;
+}
+#post .comments footer .add-new input[type="submit"] {
+	width: 100px;
 }
