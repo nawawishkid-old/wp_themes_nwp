@@ -6,7 +6,9 @@ $comments = get_comments( $args ); ?>
 
 <article class="comments">
 	<header>
-		<p><?php echo __( 'Discussion', 'nwp' ) . ' (' . get_comments_number() . ')'; ?></p>
+		<h4>
+			<?php echo __( 'Discussion', 'nwp' ) . ' (' . get_comments_number() . ')'; ?>
+		</h4>
 	</header>
 	<article>
 <?php
@@ -22,8 +24,7 @@ $comments = get_comments( $args ); ?>
 			<header class="clearfix mb-3">
 				<div class="author float-left">
 					<a href="<?php echo $profile; ?>">
-						<img class="pr-2" 
-							 src="<?php echo get_avatar_url( $comment->comment_author_email ); ?>">
+						<img src="<?php echo get_avatar_url( $comment->comment_author_email ); ?>">
 					</a>
 					<a href="<?php echo $profile; ?>">
 						<?php echo $comment->comment_author; ?>
