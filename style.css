@@ -45,14 +45,19 @@ I intend to write this stylesheet in a more semantic and readable way.
 #post .comments .comment {
 	border-bottom: 1px solid rgba(0,0,0,.125);
 }
+#post .comments .comment .thread {
+	width: calc(100% - 1em);
+	margin-left: auto;
+	border-left: 3px solid rgba(0,0,0,.125);
+}
 #post .author img {
 	height: 32px;
 	padding-right: .75em;
 	border-radius: 50%;
 }
-#post .comments footer .add-new textarea {
+#post .comments .add-new textarea {
 	min-height: 100px;
 }
-#post .comments footer .add-new input[type="submit"] {
+#post .comments .add-new .btn {
 	width: 100px;
 }

@@ -1,24 +1,45 @@
-<?php 
-$args = [
-	'post_id' => get_the_ID()
-];
-$comments = get_comments( $args ); ?>
+<?php
 
+/**
+ * If the post has no comment.
+ */
+if ( ! have_comments() ) : ?>
+
+	<h3><?php _e( 'No comments yet.', 'nwp' ); ?></h3>
+
+<?php
+	get_template_part( 'comment', 'form' );
+	return;
+
+endif;
+
+
+
+/**
+ * If the post has comments.
+ */
+$args = ['parent' => 0];
+$comments = get_comments( $args ); ?>
+<?php
+//pretty_print( $comments );
+?>
 <article class="comments">
 	<header>
 		<h4>
 			<?php echo __( 'Discussion', 'nwp' ) . ' (' . get_comments_number() . ')'; ?>
 		</h4>
 	</header>
+	<?php get_template_part( 'inc/UI/comment', 'form' ); ?>
 	<article>
 <?php
 
 	foreach ( $comments as $comment ) : 
+		//pretty_print( $comment );
 		$profile = $comment->comment_author_url;
 		$timestamp = strtotime( $comment->comment_date );
 		$format = ( ( time() - $timestamp ) / ( 60 * 60 * 24 ) ) > 365 ? 'M d, y' : 'M d';
 		$date = date( $format, $timestamp );
-		$id = get_comment_ID();
+		$id = $comment->comment_ID;
 ?>
 		<article id="comment-<?php echo $id; ?>" class="comment p-3 mb-2">
 			<header class="clearfix mb-3">
@@ -46,47 +67,19 @@ $comments = get_comments( $args ); ?>
 			 				'depth' => 5,
 			 				'max_depth' => 10
 			 			];
-			 			comment_reply_link( $reply_args, get_comment_ID(), get_the_ID()  ); 
+			 			comment_reply_link( $reply_args, $id, $comment->comment_post_ID  ); 
 				 	?>
 				 </small>
 		 	</footer>
 
-		 </article>
+		 	<section class="reply">
+				<?php nwp_comment_threads( $id ); ?>
+			</section>
+
+		</article>
+
 <?php 
 	endforeach;
 ?>
 	</article>
-	<footer>
-		<?php 
-			$comments_args = [
-				'class_form' => 'add-new p-3',
-				'class_submit' => 'btn btn-outline-primary d-block ml-auto',
-		        'label_submit'=> __( 'Send', 'nwp' ),
-		        'title_reply'=> '',
-		        'comment_notes_before' => '',
-		        'comment_field' => '
-		        	<div class="form-group">
-			        	<textarea id="add_comment" 
-			        				class="form-control" 
-			        				name="comment" 
-			        				aria-required="true"
-			        				placeholder="' . __( 'Discuss it!', 'nwp' ) . '"></textarea>
-			        </div>',
-		        'fields' => [
-		        	'author' => '
-		        		<div class="form-row">
-			        		<div class="form-group col-sm-6">
-			        			<input type="text" name="comment_author" class="form-control" placeholder="Name">
-			        		</div>',
-		        	'email' => '
-			        		<div class="form-group col-sm-6">
-			        			<input type="email" name="comment_email" class="form-control" placeholder="Email">
-			        		</div>
-		        		</div>'
-		        ]
-			];
-
-			comment_form($comments_args); 
-		?>
-	</footer>
 </article>

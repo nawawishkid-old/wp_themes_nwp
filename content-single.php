@@ -29,7 +29,7 @@
 	<hr>
 	<footer class="readable px-3 px-md-0 mb-4">
 		<?php 
-			get_template_part( 'comments' );
+			comments_template();
 		?>
 	</footer>
 </article>
