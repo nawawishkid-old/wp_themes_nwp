@@ -45,9 +45,11 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
 	color: var(--black);
 }
-p, a, a:hover, a:visited {
-	color: var(--black);
+p {}
+a, a:hover, a:visited {
+	color: var(--pri);
 	text-decoration: none;
+	font-weight: bold;
 }
 span, small { color: var(--gray); }
 
@@ -92,6 +94,10 @@ body.home main {
 }
 .btn {
 	padding: 0.2rem 1.25rem;
+}
+.form-control:focus {
+    box-shadow: 0 1px 8px -1px rgba(0,0,0,0.3), 0 2px 4px -1px rgba(0,0,0,0.2);
+    border: none;
 }
 
 /**
@@ -201,27 +207,34 @@ body > footer {
 }
 
 /**
- * Post comments
+ * Comments
  */
-#comments .comment > footer,
-.comment .thread > footer {
+#comments .comment {
+	border-top: 1px solid rgba(0,0,0,.125);
 	border-bottom: 1px solid rgba(0,0,0,.125);
+	box-shadow: 0 2px 20px -9px rgba(0,0,0,0.5), 0 1px 20px -12px rgba(0,0,0,0.8)
 }
-#comments .comment .thread {
-	width: calc(100% - 1em);
-	margin-left: auto;
+#comments .thread {
 	border-left: 3px solid rgba(0,0,0,.125);
+	border-bottom: 1px solid rgba(0,0,0,.125);
 }
 .author img {
 	height: 32px;
 	margin-right: .75em;
 	border-radius: 50%;
 }
+.author a { color: var(--pri-dark); }
 #comments .add-new textarea {
 	min-height: 100px;
 }
 #comments .add-new .btn {
 	width: 100px;
+}
+#comments .reply {
+	margin-left: 1rem;
+}
+#comments .reply + .comment {
+    margin-top: 1rem;
 }
 
 /**

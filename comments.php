@@ -44,7 +44,7 @@ $comments = get_comments( $args ); ?>
 		$date = date( $format, $timestamp );
 		$id = $comment->comment_ID;
 ?>
-		<article id="comment-<?php echo $id; ?>" class="comment p-3 mb-2">
+		<article id="comment-<?php echo $id; ?>" class="comment p-3">
 			<header class="clearfix mb-3">
 				<div class="author float-left">
 					<a href="<?php echo $profile; ?>">
@@ -75,11 +75,11 @@ $comments = get_comments( $args ); ?>
 				 </small>
 		 	</footer>
 
-		 	<section class="reply">
-				<?php nwp_comment_threads( $id ); ?>
-			</section>
-
 		</article>
+
+	 	<section class="reply">
+			<?php nwp_comment_threads( $id ); ?>
+		</section>
 
 <?php 
 	endforeach;

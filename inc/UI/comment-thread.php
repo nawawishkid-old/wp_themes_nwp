@@ -2,10 +2,16 @@
 
 function nwp_comment_threads( $parent_id ) {
 
-	$threads = get_comments( ['parent' => $parent_id] );
+	$args = [
+		'parent' => $parent_id,
+		'order' => 'ASC'
+	];
+	$threads = get_comments( $args );
 	//pretty_print( $threads );
 	if ( empty( $threads ) )
 		return;
+
+	$hasSibling = count( $threads ) > 1 ? 'thread-sibling' : '';
 
 	foreach ( $threads as $thread ) :
 		$profile = $thread->comment_author_url;
@@ -14,8 +20,7 @@ function nwp_comment_threads( $parent_id ) {
 		$date = date( $format, $timestamp );
 		$id = $thread->comment_ID;
 ?>
-		<article id="comment-<?php echo $id; ?>" class="thread py-3 pl-3 mb-2">
-			<?php echo 'Thread from parent #' . $parent_id; ?>
+		<article id="comment-<?php echo $id; ?>" class="thread py-3 pl-3 <?php echo $hasSibling; ?>">
 			<header class="clearfix mb-3">
 				<div class="author float-left">
 					<a href="<?php echo $profile; ?>">
@@ -46,13 +51,11 @@ function nwp_comment_threads( $parent_id ) {
 				 </small>
 		 	</footer>
 
-		 	<section class="reply">
-				<?php nwp_comment_threads( $id ); ?>
-			</section>
-
 		</article>
-		
-		<?php nwp_comment_threads( $id ); ?>
+
+	 	<section class="reply">
+			<?php nwp_comment_threads( $id ); ?>
+		</section>
 
 <?php
 	endforeach;
