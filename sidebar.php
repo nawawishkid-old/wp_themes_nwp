@@ -10,3 +10,5 @@ endif;
 
 dynamic_sidebar( 'sidebar-right' );
 ?>
+
+<h1>This is sidebar.</h1>
