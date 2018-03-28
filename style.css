@@ -95,6 +95,18 @@ body.home main {
 }
 
 /**
+ * WordPress class
+ */
+a.custom-logo-link {
+	width: 100%;
+	height: 100%;
+}
+a.custom-logo-link img {
+	height: 100%;
+	width: auto;
+}
+
+/**
  * Nav
  */
 #navPlaceHolder {

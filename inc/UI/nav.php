@@ -4,6 +4,7 @@
 			<div class="col-4">
 				<a href="<?php echo site_url(); ?>">
 					<?php echo get_bloginfo( 'name' ); ?>
+					<?php the_custom_logo(); ?>
 					<?php wp_nav_menu( array( 'theme_location' => 'social' ) ); ?>
 				</a>
 			</div>
