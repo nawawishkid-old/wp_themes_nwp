@@ -12,5 +12,6 @@
 <body <?php body_class(); ?>>
 	<?php get_template_part( 'inc/UI/nav' ); ?>
 	<header>
+		<img src="<?php header_image(); ?>">
 	</header>
-	<main>
+	<main class="my-5">

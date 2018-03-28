@@ -1,6 +1,45 @@
 var $ = jQuery;
 
 $(document).ready(function() {
+
+	/**
+	 *
+	 */
+	fixedNavBarPositioning();
+
+	/**
+	 *
+	 */
+	commentReplyFormHandling();
+});
+
+/**
+ * Position fixed nav bar when #wpadminbar exist
+ */
+function fixedNavBarPositioning() {
+	var wpadminbar = $('#wpadminbar'),
+		win, nav;
+
+	if ( !wpadminbar.length ) return;
+
+	win = $(window);
+	nav = $('nav#navBar');
+
+	win.scroll(function() {
+		var top = 0;
+
+		if ( win.scrollTop() <= 0 || wpadminbar.css('position') === 'fixed' )
+			top = 'initial';
+
+		nav.css('top', top);
+	});
+}
+
+/**
+ * WP Comment reply form handling
+ */
+function commentReplyFormHandling() {
+
 	$('.comment-reply-link').click(function() {
 		var $this = $(this),
 			comID = $this.data('commentid'),
@@ -45,4 +84,4 @@ $(document).ready(function() {
 		// Hide #respond component
 		$('#respond-' + comID).addClass('d-none');
 	}
-});
+}

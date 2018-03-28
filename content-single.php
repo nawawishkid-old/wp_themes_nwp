@@ -2,7 +2,7 @@
 	<header class="">
 		<?php if ( has_post_thumbnail() ) : ?>
 			<div class="image">
-				<img src="<?php echo get_the_post_thumbnail_url(); ?>">
+				<?php the_post_thumbnail( 'medium_large' ); ?>
 			</div>
 		<?php endif; ?>
 	</header>
@@ -14,7 +14,7 @@
 					<img src="<?php echo get_avatar_url( get_the_author_meta( 'ID' ) ); ?>">
 				</a>
 				<a href="<?php echo get_the_author_link(); ?>">
-					<?php echo get_the_author(); ?>
+					<strong><?php echo get_the_author(); ?></strong>
 				</a>
 			</span>
 			<small class="date float-right">

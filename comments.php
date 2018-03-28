@@ -18,11 +18,14 @@ endif;
 /**
  * If the post has comments.
  */
-$args = ['parent' => 0];
+$args = [
+	'parent' => 0,
+	'post_id' => get_the_ID()
+];
 $comments = get_comments( $args ); ?>
-<?php
-//pretty_print( $comments );
-?>
+
+<?php //pretty_print( $comments ); ?>
+
 <article id="comments">
 	<header>
 		<h4>

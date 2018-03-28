@@ -5,7 +5,7 @@ add_action( 'wp_enqueue_scripts', function() {
 	wp_enqueue_script( 'nwp-bootstrap', $dir . 'js/bootstrap.min.js' );
 	wp_enqueue_style( 'nwp-bootstrap', $dir . 'css/bootstrap.min.css' );
 	wp_enqueue_style( 'nwp-style', get_stylesheet_uri() );
-	wp_enqueue_script( 'nwp-comment', $dir . 'js/nwp-comment.js' );
+	wp_enqueue_script( 'nwp', $dir . 'js/nwp.js' );
 });
 
 add_action( 'comment_form_before', function() {

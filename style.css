@@ -73,6 +73,15 @@ span, small { color: var(--gray); }
 }
 
 /**
+ * Bootstrap 4 overriding
+ */
+/* Column gutter size */
+.row [class^="col"] {
+	padding-left: .5rem;
+	padding-right: .5rem;
+}
+
+/**
  * Nav
  */
 #navPlaceHolder {
@@ -83,8 +92,8 @@ nav#navBar {
 nav#navBar.fixed {
 	width: 100%;
 	position: fixed;
-	top: 0;
-	left: 0;
+	/*top: 0;
+	left: 0;*/
 	z-index: 1;
 }
 nav#navBar > div {
@@ -111,11 +120,14 @@ nav#navBar > div > * {
 .search .icon {
 	width: 24px;
 	height: 24px;
+	background-image: url(/wp-content/themes/nwp/assets/img/icon-magnifier.png);
+	background-size: 50%;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 .search input {
 	width: calc(100% - var(--line-height));
 	border: none;
-	text-indent: .5rem;
 }
 .search input:focus {
 	outline: none;
@@ -133,20 +145,24 @@ body > footer {
 /**
  * Post
  */
-#post > header > .image {
-	max-height: 600px;
+#post > header > .image,
+.post-item .image {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	overflow: hidden;
 }
+#post > header > .image {
+	max-height: 600px;
+}
+.post-item .image {
+	max-height: 300px;
+}
 #post > header > .image img {
-	max-width: 1024px;
+	/*max-width: 1024px;
 	width: 100%;
 	display: block;
-	margin: auto;
-}
-
-/* Post item */
-.post-item .card {
-	max-width: ;
+	margin: auto;*/
 }
 
 /**
