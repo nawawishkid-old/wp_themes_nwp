@@ -21,7 +21,7 @@ function arphabet_widgets_init() {
 
 	register_sidebar( array(
 		'name'          => 'Home right sidebar',
-		'id'            => 'home_right_1',
+		'id'            => 'sidebar-right',
 		'description'   => 'This is side bar description',
 		'before_widget' => '<div>',
 		'after_widget'  => '</div>',

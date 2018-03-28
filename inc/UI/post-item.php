@@ -17,7 +17,7 @@
 				<!-- <a href="<?php echo get_the_author_link(); ?>">
 					<img src="<?php echo get_avatar_url( get_the_author_meta( 'ID' ) ); ?>">
 				</a> -->
-				<?php nwp_linked_author(); ?>
+				<?php nwp_author_linked_name(); ?>
 			</small>
 		</div>
 	</div>

@@ -38,7 +38,9 @@ $comments = get_comments( $args ); ?>
 
 	foreach ( $comments as $comment ) : 
 		//pretty_print( $comment );
-		$profile = $comment->comment_author_url;
+		$author_url = nwp_author_page_url( 
+			get_user_by( 'email', $comment->comment_author_email )->ID 
+		);
 		$timestamp = strtotime( $comment->comment_date );
 		$format = ( ( time() - $timestamp ) / ( 60 * 60 * 24 ) ) > 365 ? 'M d, y' : 'M d';
 		$date = date( $format, $timestamp );
@@ -47,10 +49,10 @@ $comments = get_comments( $args ); ?>
 		<article id="comment-<?php echo $id; ?>" class="comment p-3">
 			<header class="clearfix mb-3">
 				<div class="author float-left">
-					<a href="<?php echo $profile; ?>">
+					<a href="<?php echo $author_url; ?>">
 						<img src="<?php echo get_avatar_url( $comment->comment_author_email ); ?>">
 					</a>
-					<a href="<?php echo $profile; ?>">
+					<a href="<?php echo $author_url; ?>">
 						<?php echo $comment->comment_author; ?>
 					</a>
 				</div>

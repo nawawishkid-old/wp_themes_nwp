@@ -45,11 +45,9 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: bold;
 	color: var(--black);
 }
-p {}
 a, a:hover, a:visited {
 	color: var(--pri);
 	text-decoration: none;
-	font-weight: bold;
 }
 span, small { color: var(--gray); }
 
@@ -223,7 +221,10 @@ body > footer {
 	margin-right: .75em;
 	border-radius: 50%;
 }
-.author a { color: var(--pri-dark); }
+.author a {
+	color: var(--pri-dark);
+	font-weight: bold;
+}
 #comments .add-new textarea {
 	min-height: 100px;
 }

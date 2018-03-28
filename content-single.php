@@ -14,10 +14,10 @@
 		<div class="meta clearfix">
 			<div class="pb-3">
 				<span class="author">
-					<a href="<?php echo get_the_author_link(); ?>">
+					<a href="<?php echo nwp_author_page_url(); ?>">
 						<img src="<?php echo get_avatar_url( get_the_author_meta( 'ID' ) ); ?>">
 					</a>
-					<a href="<?php echo get_the_author_link(); ?>">
+					<a href="<?php echo nwp_author_page_url(); ?>">
 						<strong><?php echo get_the_author(); ?></strong>
 					</a>
 				</span>

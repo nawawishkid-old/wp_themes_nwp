@@ -2,6 +2,10 @@
 
 add_action( 'wp_enqueue_scripts', function() {
 	$dir = get_stylesheet_directory_uri() . '/assets/';
+
+	// WordPress jQuery is outdated
+	wp_deregister_script( 'jquery' );
+	wp_enqueue_script( 'nwp-jquery', $dir . 'js/jquery.min.js' );
 	wp_enqueue_script( 'nwp-bootstrap', $dir . 'js/bootstrap.min.js' );
 	wp_enqueue_style( 'nwp-bootstrap', $dir . 'css/bootstrap.min.css' );
 	wp_enqueue_style( 'nwp-style', get_stylesheet_uri() );
