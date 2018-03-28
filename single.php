@@ -3,6 +3,8 @@
 get_header();
 ?>
 
+<main>
+
 <?php
 
 if ( have_posts() ) {
@@ -13,6 +15,11 @@ if ( have_posts() ) {
 } else {
 
 }
+?>
+
+</main>
+
+<?php
 
 get_footer();
 

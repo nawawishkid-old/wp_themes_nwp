@@ -2,32 +2,40 @@
 	<header class="">
 		<?php if ( has_post_thumbnail() ) : ?>
 			<div class="image">
-				<?php the_post_thumbnail( 'medium_large' ); ?>
+				<?php the_post_thumbnail( 'large' ); ?>
 			</div>
 		<?php endif; ?>
 	</header>
-	<section class="readable px-3 px-md-0">
+	<section class="readable px-4 pt-4 px-sm-5">
+		<div class="pb-3">
+			<?php get_template_part( 'inc/UI/categories' ); ?>
+		</div>
 		<h1 class="title"><?php the_title(); ?></h1>
 		<div class="meta clearfix">
-			<span class="author">
-				<a href="<?php echo get_the_author_link(); ?>">
-					<img src="<?php echo get_avatar_url( get_the_author_meta( 'ID' ) ); ?>">
-				</a>
-				<a href="<?php echo get_the_author_link(); ?>">
-					<strong><?php echo get_the_author(); ?></strong>
-				</a>
-			</span>
-			<small class="date float-right">
-				<?php echo get_the_date(); ?>
-			</small>
+			<div class="pb-3">
+				<span class="author">
+					<a href="<?php echo get_the_author_link(); ?>">
+						<img src="<?php echo get_avatar_url( get_the_author_meta( 'ID' ) ); ?>">
+					</a>
+					<a href="<?php echo get_the_author_link(); ?>">
+						<strong><?php echo get_the_author(); ?></strong>
+					</a>
+				</span>
+				<small class="date float-right">
+					<?php echo get_the_date(); ?>
+				</small>
+			</div>
 		</div>
 		<!-- author img, author name, date/time, category -->
 	</section>
-	<article class="readable px-3 px-md-0 my-5">
+	<article class="readable p-4 px-sm-5">
 		<?php the_content(); ?>
 	</article>
+	<section class="readable px-4 pt-4 px-sm-5">
+		<?php get_template_part( 'inc/UI/tags' ); ?>
+	</section>
 	<hr>
-	<footer class="readable px-3 px-md-0 mb-4">
+	<footer class="readable p-4 px-sm-5 my-5">
 		<?php 
 			comments_template();
 		?>

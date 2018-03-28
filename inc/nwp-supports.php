@@ -34,6 +34,12 @@ function nwp_support() {
     // Set the default content width.
     //$GLOBALS['content_width'] = 525;
 
+    /**
+     * Define places for site navigation menu
+     *
+     * Usage: put wp_nave_menu( ['theme_location' => '<menuName>'] )
+     *        on where you want user nav menu to display.
+     */
     // This theme uses wp_nav_menu() in two locations.
     register_nav_menus([
             'top'    => __( 'Top Menu', 'nwp' ),

@@ -3,6 +3,7 @@
 get_header();
 ?>
 
+<main>
 <section id="posts" class="container-fluid">
 	<div class="row">
 	<?php
@@ -18,6 +19,7 @@ get_header();
 	?>
 	</div>
 </section>
+</main>
 
 <?php
 

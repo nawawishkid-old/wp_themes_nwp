@@ -1,5 +1,4 @@
 
-	</main>
 	<footer></footer>
 <?php
 
