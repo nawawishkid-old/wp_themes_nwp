@@ -31,3 +31,13 @@ function nwp_author_page_url( $id = null ) {
 
 	return get_author_posts_url( $id );
 }
+
+function nwp_style_php() {
+	$css = require 'style.php';
+
+	echo <<<STYLE
+<style type="text/css">
+	$css
+</style>
+STYLE;
+}
