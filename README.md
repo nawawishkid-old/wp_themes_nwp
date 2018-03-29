@@ -1,4 +1,35 @@
 # NWP Theme
+# Web UI Components
+## Page
+* Site name/logo
+* Header image
+* Navigation menu
+* Social media list
+* Searchbox
+* Footer
+
+## Blog post
+* Featured image
+* Post header
+* Post footer
+* Post meta (category, tag, date, author)
+* Author meta
+* Comments
+* Social media sharing
+
+## Author
+* Author image
+* Author name
+* Author bio
+
+## Comment
+* Comment section
+* Comment item
+* Reply box (form)
+* Comment thread
+* Comments not allowed
+* Comments not allowed, but has some comments
+* No comments
 
 # Bugs
 [ ] Post permalink with Thai language does not use single.php template.

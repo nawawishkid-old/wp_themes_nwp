@@ -31,6 +31,9 @@ I intend to write this stylesheet in a more semantic and readable way.
 	--nav-height: 52px;
 
 	--border-radius: .25rem;
+	--border: 1px solid rgba(0,0,0,0.125);
+	--icon-width: 32px;
+	--icon-size: 32px;
 }
 
 /**
@@ -110,10 +113,61 @@ a.custom-logo-link img {
 	width: auto;
 }
 
+/************
+ * COMPONENTS
+ ************/
+/* nwp_icon */
+.nwp_icon,
+.nwp_icon svg { width: var(--icon-width); height: var(--icon-height); }
+.nwp_icon svg { fill: var(--gray); }
+.nwp_icon svg:hover { fill: var(--black); }
+
+/* nwp_nav-bar */
+.nwp_nav-bar-placeholder {
+	height: var(--nav-height);
+}
+.nwp_nav-bar.fixed {
+	width: 100%;
+	position: fixed;
+	z-index: 1;
+}
+.nwp_nav-bar > .row {
+	height: var(--nav-height);
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: var(--white);
+	border-bottom: var(--border);
+}
+.nwp_nav-bar > .row > * {
+	display: inline-flex;
+	align-items: center;
+}
+
+/* nwp_search-bar */
+.nwp_search-bar {
+	width: 100%;
+	position: relative;
+}
+.nwp_search-bar .nwp_icon {
+	position: absolute;
+	z-index: 1;
+}
+.nwp_search-bar .nwp_icon svg {
+	height: 60%;
+}
+.nwp_search-bar > input {
+	width: 100%;
+	border: var(--border);
+	border-radius: var(--border-radius);
+	background-color: #efefef;
+	text-indent: var(--icon-width);
+}
+.nwp_search-bar > input:focus { background-color: #fff; }
+
 /**
  * Nav
  */
-#navPlaceHolder {
+/*#navPlaceHolder {
 	height: var(--nav-height);
 }
 nav#navBar {
@@ -121,8 +175,6 @@ nav#navBar {
 nav#navBar.fixed {
 	width: 100%;
 	position: fixed;
-	/*top: 0;
-	left: 0;*/
 	z-index: 1;
 }
 nav#navBar > div {
@@ -135,7 +187,7 @@ nav#navBar > div {
 nav#navBar > div > * {
 	display: inline-flex;
 	align-items: center;
-}
+}*/
 
 /**
  * Search

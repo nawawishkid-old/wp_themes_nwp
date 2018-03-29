@@ -10,7 +10,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<?php get_template_part( 'inc/UI/nav' ); ?>
+	<?php nwp_ui( 'nav-bar' ); ?>
 	<!-- <header>
 		<img src="<?php header_image(); ?>">
 	</header> -->
