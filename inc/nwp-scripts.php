@@ -3,9 +3,11 @@
 add_action( 'wp_enqueue_scripts', function() {
 	$dir = get_stylesheet_directory_uri() . '/assets/';
 
-	// WordPress jQuery is outdated
-	wp_deregister_script( 'jquery' );
-	wp_enqueue_script( 'nwp-jquery', $dir . 'js/jquery.min.js' );
+	// !!! DO NOT REPLACE WORDPRESS DEFAULT LIBRARIES WITH NEWER VERSION !!!
+	// see https://developer.wordpress.org/themes/advanced-topics/javascript-best-practices/#use-included-libraries
+	// wp_deregister_script( 'jquery' );
+	// wp_enqueue_script( 'nwp-jquery', $dir . 'js/jquery.min.js' );
+
 	wp_enqueue_script( 'nwp-bootstrap', $dir . 'js/bootstrap.min.js' );
 	wp_enqueue_style( 'nwp-bootstrap', $dir . 'css/bootstrap.min.css' );
 	wp_enqueue_style( 'nwp-style', get_stylesheet_uri() );
@@ -36,11 +38,11 @@ STYLE;
 /**
  * Enqueue style into the Customizer page
  */
-add_action( 'customize_controls_enqueue_scripts', function() {
+/*add_action( 'customize_controls_enqueue_scripts', function() {
 	$dir = get_stylesheet_directory_uri() . '/assets/';
 
 	wp_enqueue_script( 'nwp-bootstrap', $dir . 'js/bootstrap.min.js' );
 	wp_enqueue_style( 'nwp-bootstrap', $dir . 'css/bootstrap.min.css' );
 	//wp_enqueue_style( 'nwp-style', get_stylesheet_uri() );
 	//wp_enqueue_script( 'nwp', $dir . 'js/nwp.js' );
-});
+});*/

@@ -12,12 +12,13 @@ function nwp_support() {
     /**
      * Enable user to select format of currently edit post.
      */
-    add_theme_support( 'post-formats', [
+    // Unsupport yet
+    /*add_theme_support( 'post-formats', [
         'aside', 'image',
         'video', 'quote',
         'link', 'gallery',
         'audio',
-    ]);
+    ]);*/
 
     /**
      * Add theme support for selective refresh for widgets.

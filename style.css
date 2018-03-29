@@ -203,6 +203,10 @@ body > footer {
 #post > article p {
     margin-bottom: 2.5rem;
 }
+#post article iframe {
+    display: block;
+    margin: auto;
+}
 
 /**
  * Comments
