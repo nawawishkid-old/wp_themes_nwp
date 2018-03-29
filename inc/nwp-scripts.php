@@ -36,7 +36,7 @@ STYLE;
 /**
  * Enqueue style into the Customizer page
  */
-add_action( 'customize_controls_print_styles', function() {
+add_action( 'customize_controls_enqueue_scripts', function() {
 	$dir = get_stylesheet_directory_uri() . '/assets/';
 
 	wp_enqueue_script( 'nwp-bootstrap', $dir . 'js/bootstrap.min.js' );
@@ -44,14 +44,3 @@ add_action( 'customize_controls_print_styles', function() {
 	//wp_enqueue_style( 'nwp-style', get_stylesheet_uri() );
 	//wp_enqueue_script( 'nwp', $dir . 'js/nwp.js' );
 });
-
-
-
-/**
- * Temporary function for dev only
- */
-function pretty_print( $data, $is_dump = false ) {
-	echo '<pre>';
-	$is_dump ? var_dump( $data ) : print_r( $data );
-	echo '</pre>';
-}

@@ -1,9 +1,12 @@
 # NWP Theme 
 # Bugs
 [ ] Post permalink with Thai language does not use single.php template.
-[ ] Cannot get author page url
+[x] Cannot get author page url
 
 #Features
+## Generals
+[ ] Dequeue unrelated scripts in every page.
+
 ## Comments
 ### TODO
 [x] Find a way to add cancel button beside submit button in the form.

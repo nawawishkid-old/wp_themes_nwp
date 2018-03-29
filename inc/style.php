@@ -3,8 +3,8 @@
 $pri = get_theme_mod( 'nwp_cssvar_pri', '#0096ff' );
 $pri_light = get_theme_mod( 'nwp_cssvar_pri-light', '#00aaff' );
 $pri_dark = get_theme_mod( 'nwp_cssvar_pri-dark', '#0078c8' );
-$font_size = get_theme_mod( 'nwp_cssvar_font-size', '16' );
-$line_height = get_theme_mod( 'nwp_cssvar_line-height', '20' );
+$font_size = get_theme_mod( 'nwp_cssvar_font-size', '16px' );
+$line_height = get_theme_mod( 'nwp_cssvar_line-height', '20px' );
 
 return <<<CSS
 :root {

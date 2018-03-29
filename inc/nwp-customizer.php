@@ -113,8 +113,16 @@ function customizer_callback( $c ) {
 }
 
 function sanitize_font_setting( $input ) {
-	preg_match( '/(\d+)(px|em|rem|%)?/', $input, $matches );
+	if ( ! isset( $input ) || empty( $input ) 
+		|| is_null( $input ) || ! is_string( $input ) 
+	   ) 
+	{
+		return 'initial';
+	}
 
-	var_dump( $matches );
-	return $matches[2] ? $input : ( $matches[1] ? $matches[1] . 'px' : 'initial' );
+	$input = sanitize_text_field( $input );
+
+	$is_match = preg_match( '/^(\d{1,2})(px|em|rem|%)?$/', $input, $matches );
+
+	return ! $is_match ? 'initial' : ( $matches[2] ? $input : ( $matches[1] ? $matches[1] . 'px' : 'initial' ) );
 }
