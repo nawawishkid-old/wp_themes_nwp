@@ -1,4 +1,4 @@
-<div class="nwp_search-bar d-flex align-items-center">
+<div id="nwp_search-bar-1" class="nwp_search-bar d-flex align-items-center">
 	<span class="nwp_icon h-100">
 		<div class="position-relative d-flex justify-content-center align-items-center h-100 w-100">
 			<?php nwp_img( 'icon-magnifier.svg' ); ?>
