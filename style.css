@@ -151,6 +151,7 @@ a.custom-logo-link img {
 .nwp_search-bar .nwp_icon {
 	position: absolute;
 	z-index: 1;
+	pointer-events: none;
 }
 .nwp_search-bar .nwp_icon svg {
 	height: 60%;
@@ -163,6 +164,17 @@ a.custom-logo-link img {
 	text-indent: var(--icon-width);
 }
 .nwp_search-bar > input:focus { background-color: #fff; }
+.nwp_search-bar-results {
+	width: 100%;
+	position: absolute;
+	top: 100%;
+}
+.nwp_search-bar-results.active {
+	border: var(--border);
+}
+.nwp_search-bar-results-item {
+	background-color: var(--white);
+}
 
 /**
  * Nav

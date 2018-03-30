@@ -8,4 +8,5 @@
 			name="nwp_search-bar" 
 			placeholder="<?php _e( 'Search', 'nwp' ); ?>"
 			class="">
+	<div class="nwp_search-bar-results"></div>
 </div>
