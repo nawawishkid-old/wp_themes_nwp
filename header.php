@@ -15,4 +15,4 @@
 	<!-- <header>
 		<img src="<?php header_image(); ?>">
 	</header> -->
-	<?php get_sidebar(); ?>
+	<?php //get_sidebar(); ?>

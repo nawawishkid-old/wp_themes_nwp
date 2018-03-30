@@ -210,7 +210,7 @@ function search(input, options) {
  * Executions
  */
 $(document).ready(function() {
-	
+	console.log(wp);
 
 	SearchBar.init();
 	Sidebar.init();

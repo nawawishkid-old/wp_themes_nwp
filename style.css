@@ -15,12 +15,12 @@ I intend to write this stylesheet in a more semantic and readable way.
  */
 :root {
 	/* color */
-	--pri: rgb(0, 150, 255); /*#0087BD;*/
-	--pri-light: rgb(0, 170, 255);
-	--pri-dark: rgb(0, 120, 200);
-	--sec: ;
-	--sec-light: ;
-	--sec-dark: ;
+	/* --pri may be this: #2a6592 */
+	--pri: #00395f; /*rgb(0, 150, 255);*/ /*#0087BD;*/
+	--pri-light: #eef1f3; /*rgb(0, 170, 255);*/
+	--pri-dark: #001e31; /*rgb(0, 120, 200);*/
+	--pri-white: #f8fcfd; /*rgb(248, 252, 253);*/
+	/*--pri-black: rgb(0, 30, 49);*/
 	--black: rgb(56, 56, 56);
 	--gray: rgb(153, 153, 153);
 	--white: rgb(255, 255, 255);
@@ -50,7 +50,7 @@ h1, h2, h3, h4, h5, h6 {
 	color: var(--black);
 }
 a, a:hover, a:visited {
-	color: var(--pri);
+	color: var(--pri-light);
 	text-decoration: none;
 }
 span, small { color: var(--gray); }
@@ -82,8 +82,11 @@ body.home main {
 }
 .clickable .prt-3 {
 	background-color: var(--pri);
-	color: var(--white);
+	color: var(--pri-white);
 	font-weight: bold;
+}
+.bg-light {
+	background-color: ;
 }
 
 /**
@@ -120,15 +123,18 @@ a.custom-logo-link img {
 /* nwp_icon */
 .nwp_icon,
 .nwp_icon svg { width: var(--icon-width); height: var(--icon-height); }
-.nwp_icon svg { fill: var(--gray); }
-.nwp_icon svg:hover { fill: var(--black); }
+.nwp_icon svg { fill: var(--pri-white); }
+/*.nwp_icon svg:hover { fill: var(--black); }*/
 
 /* nwp_nav-bar */
 .nwp_nav-bar-placeholder {
 	height: var(--nav-height);
 }
-.nwp_nav-bar.fixed {
+.nwp_nav-bar {
 	width: 100%;
+	background-color: var(--pri);
+}
+.nwp_nav-bar.fixed {
 	position: fixed;
 	z-index: 1;
 }
@@ -136,12 +142,16 @@ a.custom-logo-link img {
 	height: var(--nav-height);
 	padding-top: 10px;
 	padding-bottom: 10px;
-	background-color: var(--white);
 	border-bottom: var(--border);
 }
 .nwp_nav-bar > .row > * {
 	display: inline-flex;
 	align-items: center;
+}
+
+/* nwp_brand-name */
+.nwp_brand-name a {
+	color: var(--pri-white);
 }
 
 /* nwp_search-bar */
@@ -156,6 +166,7 @@ a.custom-logo-link img {
 }
 .nwp_search-bar .nwp_icon svg {
 	height: 60%;
+	fill: var(--pri);
 }
 .nwp_search-bar > input {
 	width: 100%;
@@ -163,19 +174,29 @@ a.custom-logo-link img {
 	text-indent: var(--icon-width);
 	border: var(--border);
 	border-radius: var(--border-radius);
-	background-color: #efefef;
-	opacity: .5;
+	background-color: var(--pri-white);
+	opacity: .4;
+}
+.nwp_search-bar > input::placeholder {
+	color: var(--pri);
+}
+.nwp_search-bar > input::-ms-placeholder {
+	color: var(--pri);
+}
+.nwp_search-bar > input::-webkit-placeholder {
+	color: var(--pri);
 }
 .nwp_search-bar > input:focus {
 	outline: none;
 	box-shadow: none;
-	background-color: #fff;
+	background-color: var(--pri-white);
 	opacity: 1;
 }
 .nwp_search-bar-results {
 	width: 100%;
 	position: absolute;
 	top: 100%;
+	background-color: var(--white);
 }
 .nwp_search-bar-results.active {
 	border: var(--border);
@@ -183,10 +204,13 @@ a.custom-logo-link img {
 	border-top: none;
 }
 .nwp_search-bar-results-item {
-	background-color: var(--white);
 }
 .nwp_search-bar-results-item:hover {
-	background-color: #efefef;
+	background-color: var(--pri-white);
+}
+.nwp_search-bar-results-item a {
+	width: 100%;
+	display: block;
 }
 
 /* nwp_sidebar */
@@ -210,6 +234,7 @@ a.custom-logo-link img {
 	width: 100vw;
 	height: 100vh;
 	position: absolute;
+	top: 0;
 	background-color: #000;
 	opacity: 0;
 	pointer-events: none;
@@ -242,7 +267,7 @@ nav#navBar > div {
 	height: var(--nav-height);
 	padding-top: 10px;
 	padding-bottom: 10px;
-	background-color: var(--white);
+	background-color: var(--pri-white);
 	border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 nav#navBar > div > * {
@@ -292,6 +317,9 @@ body > footer {
 	justify-content: center;
 	align-items: center;
 	overflow: hidden;
+}
+#post {
+	background-color: var(--pri-white);
 }
 #post > header > .image {
 	max-height: 400px;
@@ -347,6 +375,14 @@ body > footer {
 }
 #comments .add-new .btn {
 	width: 100px;
+	color: var(--pri-light);
+	border: 1px solid;
+	background-color: transparent;
+}
+#comments .add-new .btn:hover {
+	color: var(--white);
+	border-color: var(--pri-light);
+	background-color: var(--pri-light);
 }
 #comments .reply {
 	margin-left: 1rem;

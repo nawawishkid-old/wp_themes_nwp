@@ -1,4 +1,4 @@
-<article id="post">
+<article id="post" class="pb-5">
 	<header class="">
 		<?php if ( has_post_thumbnail() ) : ?>
 			<div class="image">
@@ -35,7 +35,7 @@
 		<?php get_template_part( 'inc/UI/tags' ); ?>
 	</section>
 	<hr>
-	<footer class="readable p-4 px-sm-5 my-5">
+	<footer class="readable p-4 px-sm-5">
 		<?php 
 			comments_template();
 		?>

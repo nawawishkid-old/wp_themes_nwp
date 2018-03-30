@@ -24,7 +24,7 @@ $args = [
 ];
 $comments = get_comments( $args ); ?>
 
-<?php //pretty_print( $comments ); ?>
+<?php //nwp_pretty_print( $comments ); ?>
 
 <article id="comments">
 	<header>
@@ -37,7 +37,7 @@ $comments = get_comments( $args ); ?>
 <?php
 
 	foreach ( $comments as $comment ) : 
-		//pretty_print( $comment );
+		//nwp_pretty_print( $comment );
 		$author_url = nwp_author_page_url( 
 			get_user_by( 'email', $comment->comment_author_email )->ID 
 		);

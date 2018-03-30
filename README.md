@@ -1,11 +1,17 @@
 # NWP Theme
+# Design
+
 # Web UI Components
 ## Page
 * Site name/logo
 * Header image
-* Navigation menu
+* Top navigation menu
+* Sidebar navigation menu
+  [ ] [Support swipe event](https://stackoverflow.com/questions/2264072/detect-a-finger-swipe-through-javascript-on-the-iphone-and-android)
 * Social media list
+* User login
 * Searchbox
+  [ ] Preloader
 * Footer
 
 ## Blog post
@@ -34,6 +40,7 @@
 # Bugs
 [ ] Post permalink with Thai language does not use single.php template.
 [x] Cannot get author page url
+[ ] No comment but display as 1 comment in "การทดสอบหมายเลข 3"
 
 # TODO
 ## Comments
@@ -87,3 +94,6 @@
 ## Accessibility
 [ ] Ensure every `<img>` has `alt=""` text.
 [ ] Optimized the use of HTML `aria-` attributes.
+
+## Localization
+[ ] Parse .pot file to JSON array for JS to use in frontend.
