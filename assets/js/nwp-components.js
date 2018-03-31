@@ -3,12 +3,9 @@
 /**
  * Components
  */
- var SearchBar, Sidebar;
-
-SearchBar = {
+function SearchBar(selector) {
 	// Properties
-	selector: '#nwp_search-bar-1',
-	result: {
+	this.result = {
 		// Properties
 		active: false,
 		name: 'nwp_search-bar-results',
@@ -17,14 +14,14 @@ SearchBar = {
 		 * Markup templates for displaying search results.
 		 */
 		template: {
-			core: function(options) {
+			core: function(options, searchBar) {
 				return (
-					'<div class="' + SearchBar.result.name + '-item p-2">' +
+					'<div class="' + searchBar.name + '-item p-2">' +
 						options.content +
 					'</div>'
 				);
 			},
-			success: function(data) {
+			success: function(data, searchBar) {
 				var title = data.title.rendered,
 					content;
 
@@ -37,14 +34,14 @@ SearchBar = {
 					'</a>'
 				);
 
-				return SearchBar.result.template.core({content: content});
+				return this.core({content: content}, searchBar);
 			},
-			report: function(text) {
+			report: function(text, searchBar) {
 				var content = (
 					'<span class="d-flex justify-content-center">' + text + '</span>'
 				);
 
-				return SearchBar.result.template.core({content: content});
+				return this.core({content: content}, searchBar);
 			}
 		},
 
@@ -52,78 +49,80 @@ SearchBar = {
 		/**
 		 * Assign DOM to result.node property
 		 */
-		init: function() {
-			SearchBar.result.node = $(SearchBar.result.getSelector());
-		},
-		getSelector: function() {
-			return SearchBar.selector + ' .' + SearchBar.result.name;
-		},
+		init: (function() {
+			this.result.node = this.node.find('.' + this.result.name);
+		}).bind(this),
 
 		/**
 		 * Remove all children of result node
 		 */
 		remove: function() {
-			if ( !SearchBar.result.node.children().length ) return;
+			if ( !this.node.children().length ) return;
 
-			SearchBar.result.node.empty();
-			SearchBar.result.node.removeClass('active');
-			SearchBar.result.active = false;
+			this.node.empty();
+			this.node.removeClass('active');
+			this.active = false;
 		},
 
 		/**
 		 * Append given markup to result node
 		 */
 		render: function(html) {
-			SearchBar.result.node.append(html);
-			SearchBar.result.active = true;
+			this.node.append(html);
+			this.active = true;
 		},
 		beforeHandle: function(data) {
-			SearchBar.result.remove();
+			this.remove();
 		},
 		handle: function(data) {
 			if ( !data.length ) {
-				SearchBar.result.render(SearchBar.result.template.report('Not found'));
+				this.render(this.template.report('Not found', this));
 				return;
 			}
 
-			data.forEach(function(item) {
-				SearchBar.result.render(SearchBar.result.template.success(item));
-			});
+			data.forEach((function(item) {
+				this.render(this.template.success(item, this));
+			}).bind(this));
 		},
 		afterHandle: function(data) {
-			if ( !SearchBar.result.node.children().length ) return;
+			if ( !this.node.children().length ) return;
 
-			SearchBar.result.node.addClass('active');
+			this.node.addClass('active');
 		},
 		input: function(data) {
-			SearchBar.result.beforeHandle(data);
-			SearchBar.result.handle(data);
-			SearchBar.result.afterHandle(data);
+			console.log(this);
+			this.beforeHandle(data);
+			this.handle(data);
+			this.afterHandle(data);
 		}
-	},
+	}
 
 	// Methods
-	clear: function() {
-		SearchBar.inputNode.val('');
-	},
-	init: function() {
-		SearchBar.node = $(SearchBar.selector);
-		SearchBar.inputNode = $(SearchBar.selector + ' input');
-		SearchBar.result.init();
+	this.clear = function() {
+		this.inputNode.val('');
+	}
+
+	this.init = (function() {
+		var $this = this;
+
+		this.node = $(selector);
+		this.inputNode = $(selector + ' input');
+		this.result.init();
 
 		/**
 		 * Enable search input
 		 */
-		SearchBar.inputNode.keyup(function() {
+		this.inputNode.keyup(function() {
+			console.log($this.node);
 			search(this.value, {
-				onSuccess: SearchBar.result.input,
-				onInputEmpty: SearchBar.result.remove,
+				onSuccess: $this.result.input.bind($this.result),
+				onInputEmpty: $this.result.remove.bind($this.result),
 				onInputInvalid: function() {
-					SearchBar.result.beforeHandle();
-					SearchBar.result.render(
-						SearchBar.result.template.report('Invalid keyword')
+					$this.result.beforeHandle();
+					$this.result.render(
+						$this.result.template.report('Invalid keyword', $this)
 					);
-					SearchBar.result.afterHandle();
+					$this.result.afterHandle();
 				},
 				onError: function(error) {
 					console.log(error);
@@ -135,47 +134,43 @@ SearchBar = {
 		 * Remove search results when click outside of search components.
 		 * Remove only when search result is active or open.
 		 */
-		$(document).click(function(ev) {
-			console.log(ev.target);
-			if ( !SearchBar.result.active ) return;
+		$(document).click((function(ev) {
+			if ( !this.result.active ) return;
 
-			if ( !SearchBar.node.find(ev.target).length ) {
-				SearchBar.result.remove();
-				SearchBar.clear();
+			if ( !this.node.find(ev.target).length ) {
+				this.result.remove();
+				this.clear();
 			}
-		});
-	}
+		}).bind(this));
+	}).call(this);
 }
 
-Sidebar = {
-	selector: '#nwp_sidebar',
-	triggerSelector: '.nwp_nav-menu.nwp_icon',
-	backgroundSelector: '#nwp_sidebar .background',
+function Sidebar(sidebarSelector, triggerSelector, backgroundSelector) {
+	this.isActive = function() {
+		return this.node.hasClass('active') ? true : false;
+	}
+	this.activate = function() {
+		this.node.addClass('active');
+	}
+	this.deactivate = function() {
+		this.node.removeClass('active');
+	}
+	this.init = (function() {
+		var $this = this;
+		var bgSel = backgroundSelector || sidebarSelector + ' .background';
 
-	isActive: function() {
-		return Sidebar.node.hasClass('active') ? true : false;
-	},
-	activate: function() {
-		Sidebar.node.addClass('active');
-	},
-	deactivate: function() {
-		Sidebar.node.removeClass('active');
-	},
-	init: function() {
-		console.log('init');
-		Sidebar.node = $(Sidebar.selector);
-		Sidebar.trigger = $(Sidebar.triggerSelector);
-		Sidebar.background = $(Sidebar.backgroundSelector);
+		this.node = $(sidebarSelector);
+		this.trigger = $(triggerSelector);
+		this.background = $(bgSel);
 
-		Sidebar.trigger.click(function() {
-			console.log('click');
-			Sidebar.node.toggleClass('active');
+		this.trigger.click(function() {
+			$this.node.toggleClass('active');
 		});
 
-		Sidebar.background.click(function() {
-			Sidebar.trigger.click();
+		this.background.click(function() {
+			$this.trigger.click();
 		})
-	}
+	}).call(this);
 }
 
 /**
@@ -210,10 +205,11 @@ function search(input, options) {
  * Executions
  */
 $(document).ready(function() {
-	console.log(wp);
 
-	SearchBar.init();
-	Sidebar.init();
+	var searchBar1 = new SearchBar('#nwp_search-bar-1');
+	var searchBar2 = new SearchBar('#nwp_search-bar-2');
+	var sidebar1 = new Sidebar('#nwp_sidebar-1', '#nwp_nav-menu-1');
+
 });
 
 })(jQuery);

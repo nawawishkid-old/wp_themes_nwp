@@ -249,6 +249,9 @@ a.custom-logo-link img {
 	opacity: .8;
 	pointer-events: auto;
 }
+.nwp_sidebar * {
+	color: var(--white);
+}
 
 /**
  * Nav

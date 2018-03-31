@@ -1,6 +1,11 @@
 <?php
 
-require_once 'inc/autoload.php';
+require_once 'inc/nwp-utils.php';
+autoload( __DIR__ . '/inc/*.php', [
+	'nwp-utils.php',
+	'style.php',
+	'content-callback.php'
+] );
 
 use NWP\Admin;
 use NWP\Widget;

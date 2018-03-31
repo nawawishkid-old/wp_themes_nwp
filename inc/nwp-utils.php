@@ -1,4 +1,16 @@
 <?php
+function autoload( $path, $user_excludes = [] ) {
+	$excludes = [];
+	$excludes = array_merge( $excludes, (array) $user_excludes );
+
+	foreach ( glob( $path ) as $name ) {
+		if ( in_array( basename( $name ), $excludes ) ) {
+			continue;
+		}
+
+		include $name;
+	}
+}
 /**
  * Temporary function for dev only
  */
@@ -8,9 +20,8 @@ function nwp_pretty_print( $data, $is_dump = false ) {
 	echo '</pre>';
 }
 
-function nwp_ui( $path ) {
-	$dir = get_template_directory() . '/inc/ui/';
-	nwp_include( $dir, $path . '.php' );
+function nwp_ui( $name, $callback_args = [] ) {
+	call_user_func_array( 'nwp_ui_' . $name, (array) $callback_args );
 }
 
 function nwp_img( $path ) {

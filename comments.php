@@ -1,5 +1,7 @@
 <?php
 
+require 'inc/UI/comment-thread.php';
+
 /**
  * If the post has no comment.
  */

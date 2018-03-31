@@ -1,6 +1,11 @@
+<?php
+
+function nwp_ui_sidebar( $id ) {
+?>
 <!-- Use get_theme_mod to define class left or right -->
-<div id="nwp_sidebar" class="nwp_sidebar right">
-	<section>
+<div id="<?php echo $id; ?>" class="nwp_sidebar right">
+	<section class="p-3">
+		<?php nwp_ui( 'search_bar', 'nwp_search-bar-2' ); ?>
 		<h1><?php _e( 'Menu', 'nwp' ); ?></h1>
 	</section>
 	<section>
@@ -8,3 +13,6 @@
 	</section>
 	<div class="background"></div>
 </div>
+
+<?php
+}
