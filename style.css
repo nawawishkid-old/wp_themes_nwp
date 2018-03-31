@@ -356,7 +356,7 @@ body > footer {
     display: block;
     margin: auto;
 }
-#post > article img {
+#post > article * {
     max-width: 100%;
     height: auto;
 }
@@ -364,21 +364,33 @@ body > footer {
 	width: 100vw;
 	height: 100vh;
 	display: none;
-	align-items: center;
 	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 100;
+	white-space: nowrap;
 	background-color: var(--pri-white);
 	overflow: auto;
 }
 #post > article .modal-image.active {
-	display: flex;
+	display: block;
 }
-#post > article .modal-image > img {
+#post > article .modal-image.portrat > img,
+#post > article .modal-image.full-width > img {
+	width: 100%;
+	vertical-align: middle;
+}
+#post > article .modal-image.landscape > img,
+#post > article .modal-image.full-height > img {
 	max-width: initial;
-	width: auto;
 	height: 100%;
+	display: inline-block;
+	margin: auto;
+}
+#post > article .modal-image .vertical-align-helper {
+	height: 100%;
+	display: inline-block;
+	vertical-align: middle;
 }
 
 /**

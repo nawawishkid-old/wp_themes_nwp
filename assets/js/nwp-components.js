@@ -177,7 +177,8 @@ function articleModalImageHandling() {
 
 	imgs.click(function() {
 		var $this = $(this);
-		var modal = $this.next();
+		var parent = $this.parent();
+		var modal = parent.find('.modal-image');
 		var slug;
 
 		// If modal has been created, just display it.
@@ -188,17 +189,24 @@ function articleModalImageHandling() {
 			return;
 		}
 
-		slug = this.src.match(/^.*[\\\/]([\w-]*)-\d+x\d+\.\w+$/)[1].toLowerCase();
+		slug = this.src.match(/^.*[\\\/]([\w-\._]*)-\d+x\d+\.\w+$/)[1].toLowerCase();
 
 		// If not, retrieve image source then create modal
 		// and add click listener to it.
 		// This process happens only once.
 		$.get({
-			url: '/wp-json/wp/v2/media?slug=' + slug,
+			url: '/wp-json/wp/v2/media?search=' + slug,
 			success: function(response) {
+				console.log(response);
+				var img = response[0];
+				var imgSize = {
+					width: img.media_details.sizes.full.width,
+					height: img.media_details.sizes.full.height
+				}
+
+				createModal($this.parent(), img.source_url, imgSize);
+				addModalImageListener(parent.find('.modal-image'));
 				console.log('Modal created!');
-				createModal($this.parent(), response[0].source_url);
-				addModalImageListener($this.next());
 			},
 			error: function(error) {
 				console.log(error);
@@ -206,11 +214,14 @@ function articleModalImageHandling() {
 		})
 	});
 
-	function createModal(target, imgSrc) {
-		target.append(
-			getModalMarkup(imgSrc)
+	function createModal(imgParent, imgSrc, imgSize) {
+		var className = getClassFromImageOrientation(imgSize.width, imgSize.height);
+
+		imgParent.append(
+			getModalMarkup(imgSrc, className)
 		);
-		openModal(target.find('.modal-image'));
+		// target.find('.modal-image img').
+		openModal(imgParent.find('.modal-image'));
 	}
 
 	function openModal(target) {
@@ -229,12 +240,25 @@ function articleModalImageHandling() {
 		});
 	}
 
-	function getModalMarkup(imgSrc) {
+	function getModalMarkup(imgSrc, className) {
 		return (
-			'<div class="modal-image">' +
+			'<div class="modal-image ' + className + '">' +
+				'<span class="vertical-align-helper"></span>' + 
 				'<img src="' + imgSrc + '">' +
 			'</div>'
 		);
+	}
+
+	function getClassFromImageOrientation(width, height) {
+		return width > height ? 'landscape' 
+							  : (height > width ? 'portrait' 
+							  					// Square!
+							  					: (isScreenPortrait() ? 'full-width' 
+							  										  : 'full-height'));
+	}
+
+	function isScreenPortrait() {
+		return window.innerHeight > window.innerWidth;
 	}
 }
 
