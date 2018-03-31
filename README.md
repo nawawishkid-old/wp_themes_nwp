@@ -2,20 +2,14 @@
 # Design
 
 # Web UI Components
-## TODO
-[ ] Make component function accept more arguments for modification flexibility.  
-[ ] Create PHP UI library. (So excited!)  
 ## Page
 * Site name/logo
 * Header image
 * Top navigation menu
 * Sidebar navigation menu
-  [ ] [Support swipe event](https://stackoverflow.com/questions/2264072/detect-a-finger-swipe-through-javascript-on-the-iphone-and-android)
 * Social media list
 * User login
 * Searchbox
-  [ ] Preloader
-  [ ] Arrow key search result navigation.
 * Footer
 
 ## Blog post
@@ -56,6 +50,11 @@
 [ ] Sticky reply textarea at the bottom of the page.
 [ ] Style author comment to be different from user comments.
 [ ] Pagination or lazyload.
+[ ] Make component function accept more arguments for modification flexibility.  
+[ ] Create PHP UI library. (So excited!)  
+[ ] Searchbox preloader
+[ ] Searchbox arrow key search result navigation.
+[ ] UI: [Support swipe event](https://stackoverflow.com/questions/2264072/detect-a-finger-swipe-through-javascript-on-the-iphone-and-android)
 
 ## Post formats
 ### Standard

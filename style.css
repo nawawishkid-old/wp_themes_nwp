@@ -346,14 +346,19 @@ body > footer {
 #post > article {
 	font-size: 1.25rem;
 	line-height: 2rem;
+	background-color: var(--white);
 }
 #post > article p {
     margin-bottom: 2.5rem;
 }
-#post article iframe {
+#post > article iframe {
 	max-width: 100%;
     display: block;
     margin: auto;
+}
+#post > article img {
+    max-width: 100%;
+    height: auto;
 }
 
 /**
