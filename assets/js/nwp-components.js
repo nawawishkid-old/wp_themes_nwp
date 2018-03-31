@@ -241,9 +241,11 @@ function articleModalImageHandling() {
 	}
 
 	function getModalMarkup(imgSrc, className) {
+		var helper = className !== 'square-full-height' ? '<span class="vertical-align-helper"></span>' : '';
+		
 		return (
 			'<div class="modal-image ' + className + '">' +
-				'<span class="vertical-align-helper"></span>' + 
+				helper + 
 				'<img src="' + imgSrc + '">' +
 			'</div>'
 		);
@@ -253,8 +255,8 @@ function articleModalImageHandling() {
 		return width > height ? 'landscape' 
 							  : (height > width ? 'portrait' 
 							  					// Square!
-							  					: (isScreenPortrait() ? 'full-width' 
-							  										  : 'full-height'));
+							  					: (isScreenPortrait() ? 'square-full-width' 
+							  										  : 'square-full-height'));
 	}
 
 	function isScreenPortrait() {
