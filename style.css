@@ -360,6 +360,26 @@ body > footer {
     max-width: 100%;
     height: auto;
 }
+#post > article .modal-image {
+	width: 100vw;
+	height: 100vh;
+	display: none;
+	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 100;
+	background-color: var(--pri-white);
+	overflow: auto;
+}
+#post > article .modal-image.active {
+	display: flex;
+}
+#post > article .modal-image > img {
+	max-width: initial;
+	width: auto;
+	height: 100%;
+}
 
 /**
  * Comments

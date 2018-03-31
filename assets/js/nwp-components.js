@@ -171,6 +171,73 @@ function Sidebar(sidebarSelector, triggerSelector, backgroundSelector) {
 	}).call(this);
 }
 
+function articleModalImageHandling() {
+	var imgs = $('#post > article img');
+	if ( !imgs.length ) return;
+
+	imgs.click(function() {
+		var $this = $(this);
+		var modal = $this.next();
+		var slug;
+
+		// If modal has been created, just display it.
+		if ( modal.length ) {
+			console.log('Toggle modal!');
+			openModal(modal);
+
+			return;
+		}
+
+		slug = this.src.match(/^.*[\\\/]([\w-]*)-\d+x\d+\.\w+$/)[1].toLowerCase();
+
+		// If not, retrieve image source then create modal
+		// and add click listener to it.
+		// This process happens only once.
+		$.get({
+			url: '/wp-json/wp/v2/media?slug=' + slug,
+			success: function(response) {
+				console.log('Modal created!');
+				createModal($this.parent(), response[0].source_url);
+				addModalImageListener($this.next());
+			},
+			error: function(error) {
+				console.log(error);
+			}
+		})
+	});
+
+	function createModal(target, imgSrc) {
+		target.append(
+			getModalMarkup(imgSrc)
+		);
+		openModal(target.find('.modal-image'));
+	}
+
+	function openModal(target) {
+		target.toggleClass('active');
+		$('body').css('overflow', 'hidden');
+	}
+
+	function closeModal(target) {
+		$('body').css('overflow', 'initial');
+		target.toggleClass('active');
+	}
+
+	function addModalImageListener(target) {
+		target.click(function() {
+			closeModal($(this));
+		});
+	}
+
+	function getModalMarkup(imgSrc) {
+		return (
+			'<div class="modal-image">' +
+				'<img src="' + imgSrc + '">' +
+			'</div>'
+		);
+	}
+}
+
 /**
  * Functions
  */
@@ -224,6 +291,7 @@ function autoloadCompnents() {
 $(document).ready(function() {
 
 	autoloadCompnents();
+	articleModalImageHandling();
 
 	//var searchBar1 = new SearchBar('#nwp_search-bar-1');
 	//var searchBar2 = new SearchBar('#nwp_search-bar-2');
