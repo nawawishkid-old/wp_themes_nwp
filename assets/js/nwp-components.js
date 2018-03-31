@@ -90,7 +90,6 @@ function SearchBar(selector) {
 			this.node.addClass('active');
 		},
 		input: function(data) {
-			console.log(this);
 			this.beforeHandle(data);
 			this.handle(data);
 			this.afterHandle(data);
@@ -113,7 +112,6 @@ function SearchBar(selector) {
 		 * Enable search input
 		 */
 		this.inputNode.keyup(function() {
-			console.log($this.node);
 			search(this.value, {
 				onSuccess: $this.result.input.bind($this.result),
 				onInputEmpty: $this.result.remove.bind($this.result),
@@ -201,14 +199,35 @@ function search(input, options) {
 	});
 }
 
+function autoloadCompnents() {
+	// Search Bar
+	$('[data-nwp-ui-search_bar]').each(function() {
+		new SearchBar(addHashtag(this.id));
+	});
+
+	// Sidebar
+	$('[data-nwp-ui-sidebar]').each(function(index) {
+		new Sidebar(
+			addHashtag(this.id), 
+			addHashtag($('[data-nwp-ui-sidebar-trigger]')[index].id)
+		);
+	})
+
+	function addHashtag(id) {
+		return '#' + id;
+	}
+}
+
 /**
  * Executions
  */
 $(document).ready(function() {
 
-	var searchBar1 = new SearchBar('#nwp_search-bar-1');
-	var searchBar2 = new SearchBar('#nwp_search-bar-2');
-	var sidebar1 = new Sidebar('#nwp_sidebar-1', '#nwp_nav-menu-1');
+	autoloadCompnents();
+
+	//var searchBar1 = new SearchBar('#nwp_search-bar-1');
+	//var searchBar2 = new SearchBar('#nwp_search-bar-2');
+	//var sidebar1 = new Sidebar('#nwp_sidebar-1', '#nwp_nav-menu-1');
 
 });
 

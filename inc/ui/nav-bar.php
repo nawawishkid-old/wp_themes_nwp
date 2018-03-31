@@ -21,7 +21,7 @@ $is_nav_sticky = get_theme_mod( 'nwp_class_nav_bar-sticky', 'on' );
 				<?php nwp_ui( 'search_bar', 'nwp_search-bar-1' ); ?>
 			</div>
 			<div class="col-6 col-sm-3 justify-content-end">
-				<?php nwp_ui( 'nav_menu', 'nwp_nav-menu-1' ); ?>
+				<?php nwp_ui( 'sidebar_trigger', 'nwp_sidebar-trigger-1' ); ?>
 			</div>
 		</div>
 	</nav>
