@@ -20,7 +20,8 @@ function nwp_comment_threads( $parent_id ) {
 		$date = date( $format, $timestamp );
 		$id = $thread->comment_ID;
 ?>
-		<article id="comment-<?php echo $id; ?>" class="thread py-3 pl-3 <?php echo $hasSibling; ?>">
+		<article id="comment-<?php echo $id; ?>" class="thread <?php echo $hasSibling; ?>">
+			<div class="content p-3">
 			<header class="clearfix mb-3">
 				<div class="author float-left">
 					<a href="<?php echo $profile; ?>">
@@ -50,6 +51,8 @@ function nwp_comment_threads( $parent_id ) {
 				 	?>
 				 </small>
 		 	</footer>
+
+		 	</div>
 
 		</article>
 

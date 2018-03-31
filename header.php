@@ -11,7 +11,7 @@
 
 <body <?php body_class(); ?>>
 	<?php nwp_ui( 'nav_bar', 'nwp_nav-bar-1' ); ?>
-	<?php nwp_ui( 'sidebar', 'nwp_sidebar-1' ); ?>
+	<?php nwp_ui( 'sidebar', ['nwp_sidebar-1', false] ); ?>
 	<!-- <header>
 		<img src="<?php header_image(); ?>">
 	</header> -->

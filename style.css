@@ -136,7 +136,7 @@ a.custom-logo-link img {
 }
 .nwp_nav-bar.fixed {
 	position: fixed;
-	z-index: 1;
+	z-index: 10;
 }
 .nwp_nav-bar > .row {
 	height: var(--nav-height);
@@ -161,7 +161,7 @@ a.custom-logo-link img {
 }
 .nwp_search-bar .nwp_icon {
 	position: absolute;
-	z-index: 1;
+	z-index: 10;
 	pointer-events: none;
 }
 .nwp_search-bar .nwp_icon svg {
@@ -221,8 +221,11 @@ a.custom-logo-link img {
 	position: fixed;
 	top: 0;
 	background-color: var(--pri);
-	z-index: 999;
+	z-index: 10;
 	transition: max-width var(--sidebar-speed);
+}
+.nwp_sidebar > .wrapper {
+	overflow: hidden;
 }
 .nwp_sidebar.left {
 	left: 0;
@@ -348,6 +351,7 @@ body > footer {
     margin-bottom: 2.5rem;
 }
 #post article iframe {
+	max-width: 100%;
     display: block;
     margin: auto;
 }
@@ -356,13 +360,18 @@ body > footer {
  * Comments
  */
 #comments .comment {
+	position: relative;
+	background-color: var(--white);
 	border-top: 1px solid rgba(0,0,0,.125);
 	border-bottom: 1px solid rgba(0,0,0,.125);
 	box-shadow: 0 2px 20px -9px rgba(0,0,0,0.5), 0 1px 20px -12px rgba(0,0,0,0.8)
 }
 #comments .thread {
-	border-left: 3px solid rgba(0,0,0,.125);
+	background-color: var(--white);
 	border-bottom: 1px solid rgba(0,0,0,.125);
+}
+#comments .thread > .content {
+	border-left: 3px solid rgba(0,0,0,.125);
 }
 .author img {
 	height: 32px;
@@ -388,7 +397,7 @@ body > footer {
 	background-color: var(--pri-light);
 }
 #comments .reply {
-	margin-left: 1rem;
+	padding-left: 1rem;
 }
 #comments .reply + .comment {
     margin-top: 1rem;

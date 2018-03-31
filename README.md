@@ -2,6 +2,9 @@
 # Design
 
 # Web UI Components
+## TODO
+[ ] Make component function accept more arguments for modification flexibility.  
+[ ] Create PHP UI library. (So excited!)  
 ## Page
 * Site name/logo
 * Header image
@@ -12,6 +15,7 @@
 * User login
 * Searchbox
   [ ] Preloader
+  [ ] Arrow key search result navigation.
 * Footer
 
 ## Blog post
@@ -22,6 +26,7 @@
 * Author meta
 * Comments
 * Social media sharing
+* Related post
 
 ## Author
 * Author image
