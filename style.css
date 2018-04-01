@@ -375,22 +375,20 @@ body > footer {
 #post > article .modal-image.active {
 	display: block;
 }
-#post > article .modal-image.portrat > img,
-#post > article .modal-image.square-full-width > img {
-	width: 100%;
-	vertical-align: middle;
+#post > article .modal-image.portrait > img,
+#post > article .modal-image.landscape > img,
+#post > article .modal-image.square-full-height > img {
+	display: block;
+	margin: auto;
 }
 #post > article .modal-image.landscape > img,
 #post > article .modal-image.square-full-height > img {
 	max-width: initial;
 	height: 100%;
 }
-#post > article .modal-image.landscape > img {
-	display: inline-block;
-}
-#post > article .modal-image.square-full-height > img {
-	display: block;
-	margin: auto;
+#post > article .modal-image.square-full-width > img {
+	width: 100%;
+	vertical-align: middle;
 }
 #post > article .modal-image .vertical-align-helper {
 	height: 100%;

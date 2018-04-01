@@ -241,7 +241,7 @@ function articleModalImageHandling() {
 	}
 
 	function getModalMarkup(imgSrc, className) {
-		var helper = className !== 'square-full-height' ? '<span class="vertical-align-helper"></span>' : '';
+		var helper = className == 'square-full-width' ? '<span class="vertical-align-helper"></span>' : '';
 		
 		return (
 			'<div class="modal-image ' + className + '">' +
