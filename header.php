@@ -10,8 +10,9 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<?php get_template_part( 'inc/UI/nav' ); ?>
+	<?php nwp_ui( 'nav_bar', 'nwp_nav-bar-1' ); ?>
+	<?php nwp_ui( 'sidebar', ['nwp_sidebar-1', false] ); ?>
 	<!-- <header>
 		<img src="<?php header_image(); ?>">
 	</header> -->
-	<?php get_sidebar(); ?>
+	<?php //get_sidebar(); ?>

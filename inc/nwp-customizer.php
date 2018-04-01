@@ -4,14 +4,32 @@ add_action( 'customize_register', 'customizer_callback' );
 
 function customizer_callback( $c ) {
 
-	$c->add_panel( 'nwp_panel', [
-		'title' => __( 'Awesome Panel' ),
-		'description' => '<p>NWP Panel</p>', // Include html tags such as <p>.
-		'priority' => 0, // Mixed with top-level-section hierarchy.
-		'capability' => 'edit_theme_options',
+	$c->add_section( 'nwp_section' , [
+		'title' => __( 'NWP Theme', 'nwp' ),
+		'description' => '<p>NWP Theme Customization</p>', 
 	]);
 
-	$c->add_section( 'nwp_section_colors' , [
+	$c->add_setting( 'nwp_class_nav_bar-sticky', [
+		'type' => 'theme_mod',
+		'default' => 'on'
+	]);
+
+	$c->add_control( 'nwp_control_class_nav_bar-sticky', [
+		'type' => 'checkbox',
+		'section' => 'nwp_section',
+		'settings' => 'nwp_class_nav_bar',
+		'label' => __( 'Sticky Navigation Bar' ),
+		'description' => __( 'Make navigation bar sticky.' )
+	]);
+
+	/*$c->add_panel( 'nwp_panel', [
+		'title' => __( 'NWP Theme' ),
+		'description' => '<p>NWP Theme Customization</p>', // Include html tags such as <p>.
+		'priority' => 0, // Mixed with top-level-section hierarchy.
+		'capability' => 'edit_theme_options',
+	]);*/
+
+	/*$c->add_section( 'nwp_section_colors' , [
 		'title' => __( 'Colors', 'nwp' ),
 		'panel' => 'nwp_panel'
 	]);
@@ -19,12 +37,12 @@ function customizer_callback( $c ) {
 	$c->add_section( 'nwp_section_fonts' , [
 		'title' => __( 'Fonts', 'nwp' ),
 		'panel' => 'nwp_panel'
-	]);
+	]);*/
 
 	/**
 	 * Settings
 	 */
-	$c->add_setting( 'nwp_cssvar_pri', [
+	/*$c->add_setting( 'nwp_cssvar_pri', [
 		'type' => 'theme_mod',
 		'default' => '#0096ff'
 	]);
@@ -50,12 +68,12 @@ function customizer_callback( $c ) {
 		'type' => 'theme_mod',
 		'default' => '20px',
 		'sanitize_callback' => 'sanitize_font_setting'
-	]);
+	]);*/
 
 	/**
 	 * Controls
 	 */
-	$c->add_control( 'nwp_control_cssvar_pri', [
+	/*$c->add_control( 'nwp_control_cssvar_pri', [
 		'type' => 'color',
 		'section' => 'nwp_section_colors',
 		'settings' => 'nwp_cssvar_pri',
@@ -109,10 +127,10 @@ function customizer_callback( $c ) {
 		'input_attrs' => [
 			'class' => 'form-control'
 		]
-	]);
+	]);*/
 }
 
-function sanitize_font_setting( $input ) {
+/*function sanitize_font_setting( $input ) {
 	if ( ! isset( $input ) || empty( $input ) 
 		|| is_null( $input ) || ! is_string( $input ) 
 	   ) 
@@ -125,4 +143,4 @@ function sanitize_font_setting( $input ) {
 	$is_match = preg_match( '/^(\d{1,2})(px|em|rem|%)?$/', $input, $matches );
 
 	return ! $is_match ? 'initial' : ( $matches[2] ? $input : ( $matches[1] ? $matches[1] . 'px' : 'initial' ) );
-}
+}*/
