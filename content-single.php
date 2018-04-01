@@ -31,8 +31,9 @@
 	<article class="readable p-4 px-sm-5">
 		<?php the_content(); ?>
 	</article>
-	<section class="readable px-4 pt-4 px-sm-5">
-		<?php get_template_part( 'inc/UI/tags' ); ?>
+	<section class="readable p-4 px-sm-5">
+		<!-- <?php get_template_part( 'inc/UI/tags' ); ?> -->
+		<?php nwp_ui( 'tags' ); ?>
 	</section>
 	<hr>
 	<footer class="readable p-4 px-sm-5">
