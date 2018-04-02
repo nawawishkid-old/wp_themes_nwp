@@ -41,7 +41,7 @@ function nwp_ui_comment_item( $key, $args ) {
 
 	<section class="reply">
 	<?php nwp_comment_threads( $id ); ?>
-</section>
+	</section>
 
 <?php
 }
