@@ -114,7 +114,7 @@ a.custom-logo-link img {
 }
 /* Page */
 li.page_item { list-style: none; }
-ul.children {  }
+li.page_item a { color: var(--white); }
 
 /************
  * COMPONENTS
@@ -285,6 +285,12 @@ body.home main {
 
 }
 
+/* nwp_page-list */
+.nwp_page-list ul {
+	padding-left: 0;
+	list-style: none;
+}
+
 /**
  * Nav
  */
@@ -313,7 +319,7 @@ nav#navBar > div > * {
 /**
  * Search
  */
-.search {
+/*.search {
 	max-width: 240px;
 	height: 100%;
 	border: 1px solid rgba(0,0,0,0.1);
@@ -334,7 +340,7 @@ nav#navBar > div > * {
 .search input:focus {
 	outline: none;
 	border: none;
-}
+}*/
 
 /**
  * Footer

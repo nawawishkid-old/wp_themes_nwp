@@ -44,6 +44,7 @@ class NavSidebar extends \WPComponent\Component {
 				</section>
 				<section class="pb-3">
 					<?php get_sidebar(); ?>
+					<?php \WPComponent\Bundle::getComponent( 'page-list-1' ); ?>
 				</section>
 			</div>
 			<div class="background" data-nwp-ui-sidebar-background></div>

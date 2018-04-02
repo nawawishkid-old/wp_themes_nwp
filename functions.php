@@ -9,12 +9,16 @@ autoload( __DIR__ . '/inc/*.php', [
 	'content-callback.php'
 ] );
 
+
+	//nwp_pretty_print(get_pages());
+
 /**
  * Register UI Component and its customizer
  */
 Bundle::addComponent( new NavSidebar( 'nav-sidebar-1' ) );
 Bundle::addComponent( new NavTopbar( 'nav-topbar-1' ) );
 Bundle::addComponent( new Page( 'page-1' ) );
+Bundle::addComponent( new PageList( 'page-list-1' ) );
 Bundle::buildCustomizer();
 
 add_action( 'widgets_init', 'arphabet_widgets_init' );
@@ -35,8 +39,8 @@ function arphabet_widgets_init() {
 		'description'   => 'This is side bar description',
 		'before_widget' => '<div>',
 		'after_widget'  => '</div>',
-		'before_title'  => '<h2 class="rounded">',
-		'after_title'   => '</h2>',
+		'before_title'  => '<span class="d-none">',
+		'after_title'   => '</span>',
 	) );
 
 }
