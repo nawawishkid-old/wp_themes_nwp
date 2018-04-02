@@ -61,11 +61,6 @@ input[type="button"] {
 	padding: 0.2rem 1.25rem;
 }
 
-/* Section */
-body.home main {
-	margin: 2rem 0;
-}
-
 /**
  * Global class
  */
@@ -124,6 +119,12 @@ ul.children {  }
 /************
  * COMPONENTS
  ************/
+main {
+	min-height: 100vh;
+}
+body.home main {
+	margin: 2rem 0;
+}
 /* nwp_icon */
 .nwp_icon,
 .nwp_icon svg { width: var(--icon-width); height: var(--icon-height); }
@@ -240,7 +241,6 @@ ul.children {  }
 .nwp_sidebar .background {
 	width: 100vw;
 	height: 100vh;
-	display: none;
 	position: absolute;
 	top: 0;
 	background-color: #000;
@@ -254,7 +254,6 @@ ul.children {  }
 	max-width: 400px;
 }
 .nwp_sidebar.active .background {
-	display: block;
 	opacity: .8;
 	pointer-events: auto;
 }

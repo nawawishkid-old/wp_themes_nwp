@@ -1,5 +1,7 @@
 <?php
 
+use WPComponent\Bundle;
+
 require_once 'inc/nwp-utils.php';
 autoload( __DIR__ . '/inc/*.php', [
 	'nwp-utils.php',
@@ -7,10 +9,13 @@ autoload( __DIR__ . '/inc/*.php', [
 	'content-callback.php'
 ] );
 
-// use NWP\Admin;
-// use NWP\Widget;
-// use NWP\Menu;
-// use NWP\SubMenu;
+/**
+ * Register UI Component and its customizer
+ */
+Bundle::addComponent( new NavSidebar( 'nav-sidebar-1' ) );
+Bundle::addComponent( new NavTopbar( 'nav-topbar-1' ) );
+Bundle::addComponent( new Page( 'page-1' ) );
+Bundle::buildCustomizer();
 
 add_action( 'widgets_init', 'arphabet_widgets_init' );
 

@@ -5,8 +5,9 @@ class Bundle {
 
 	public static $panelName = 'wp-component';
 	public static $components = [];
+	public static $componentKeys = [];
 
-	public static function build() {
+	public static function buildCustomizer() {
 		\add_action( 'customize_register', function( $c ) {
 			$c->add_panel( self::$panelName, [
 				'title' => __( 'WP Component' ),
@@ -22,10 +23,14 @@ class Bundle {
 	}
 
 	public static function addComponent( Component $comp ) {
+		if ( in_array( $comp->id, self::$componentKeys ) )
+			throw new Exception("Duplicate component key: `{$comp->id}`");
+			
+		self::$componentKeys[] = $comp->id;
 		self::$components[$comp->id] = $comp;
 	}
 
-	public static function get( $id ) {
+	public static function getComponent( $id ) {
 		return self::$components[$id]->markup();
 	}
 }

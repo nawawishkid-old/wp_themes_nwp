@@ -295,16 +295,20 @@ function search(input, options) {
 function autoloadCompnents() {
 	// Search Bar
 	$('[data-nwp-ui-search_bar]').each(function() {
-		new SearchBar(addHashtag(this.id));
+		new SearchBar(getSelector(this.dataset.nwpId));
 	});
 
 	// Sidebar
 	$('[data-nwp-ui-sidebar]').each(function(index) {
 		new Sidebar(
-			addHashtag(this.id), 
-			addHashtag($('[data-nwp-ui-sidebar-trigger]')[index].id)
+			getSelector(this.dataset.nwpId),
+			getSelector($('[data-nwp-ui-sidebar-trigger]')[index].dataset.nwpId)
 		);
 	})
+
+	function getSelector(id) {
+		return '[data-nwp-id="' + id + '"]';
+	}
 
 	function addHashtag(id) {
 		return '#' + id;

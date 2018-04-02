@@ -1,10 +1,11 @@
 <?php
 
-use WPComponent\Bundle;
+// use WPComponent\Bundle;
 
-Bundle::addComponent( new NavSidebar( 'nav-sidebar-1' ) );
-Bundle::addComponent( new NavTopbar( 'nav-topbar-1' ) );
-Bundle::build();
+// Bundle::addComponent( new NavSidebar( 'nav-sidebar-1' ) );
+// Bundle::addComponent( new NavTopbar( 'nav-topbar-1' ) );
+// Bundle::addComponent( new Page( 'page-1' ) );
+// Bundle::buildCustomizer();
 
 //add_action( 'customize_register', 'customizer_callback' );
 
