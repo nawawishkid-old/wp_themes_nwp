@@ -1,8 +1,16 @@
 <?php
 
-add_action( 'customize_register', 'customizer_callback' );
+use WPComponent\Bundle;
+
+Bundle::addComponent( new WPComponent\Sidebar( 'sidebar-1' ) );
+Bundle::build();
+
+//add_action( 'customize_register', 'customizer_callback' );
 
 function customizer_callback( $c ) {
+
+	$x = new Sidebar( 'kdkd' );
+	$x->customizer( $c );
 
 	$c->add_section( 'nwp_section' , [
 		'title' => __( 'NWP Theme', 'nwp' ),
@@ -20,10 +28,10 @@ function customizer_callback( $c ) {
 		'default' => true
 	]);
 
-	$c->add_setting( 'nwp_class_sidebar-left', [
+	/*$c->add_setting( 'nwp_class_sidebar-left', [
 		'type' => 'theme_mod',
 		'default' => true
-	]);
+	]);*/
 
 	$c->add_control( 'nwp_control_class_nav_bar-sticky', [
 		'type' => 'checkbox',
@@ -41,13 +49,13 @@ function customizer_callback( $c ) {
 		'description' => __( 'If on, page title will display.' )
 	]);
 
-	$c->add_control( 'nwp_control_class_sidebar-left', [
+	/*$c->add_control( 'nwp_control_class_sidebar-left', [
 		'type' => 'checkbox',
 		'section' => 'nwp_section',
 		'settings' => 'nwp_class_sidebar-left',
 		'label' => __( 'Keep side navigation bar on left.' ),
 		'description' => __( 'If unchecked, it will be on the right side of the page.' )
-	]);
+	]);*/
 
 	/*$c->add_panel( 'nwp_panel', [
 		'title' => __( 'NWP Theme' ),

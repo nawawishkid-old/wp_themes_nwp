@@ -226,7 +226,6 @@ ul.children {  }
 	top: 0;
 	z-index: 10;
 	background-color: var(--pri);
-	overflow: hidden;
 	transition: max-width var(--sidebar-speed);
 }
 .nwp_sidebar > .wrapper {

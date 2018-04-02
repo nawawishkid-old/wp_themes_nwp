@@ -11,7 +11,8 @@
 
 <body <?php body_class(); ?>>
 	<?php nwp_ui( 'nav_bar', 'nwp_nav-bar-1' ); ?>
-	<?php nwp_ui( 'sidebar', ['nwp_sidebar-1', get_theme_mod( 'nwp_class_sidebar-left', false ) ] ); ?>
+	<!--?php nwp_ui( 'sidebar', ['nwp_sidebar-1', get_theme_mod( 'nwp_class_sidebar-left', false ) ] ); ?-->
+	<?php \WPComponent\Bundle::get( 'sidebar-1' ); ?>
 	<!-- <header>
 		<img src="<?php header_image(); ?>">
 	</header> -->
