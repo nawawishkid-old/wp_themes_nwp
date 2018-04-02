@@ -21,7 +21,14 @@ $is_nav_sticky = get_theme_mod( 'nwp_class_nav_bar-sticky', true );
 				<?php nwp_ui( 'search_bar', 'nwp_search-bar-1' ); ?>
 			</div>
 			<div class="col-6 col-sm-3 justify-content-end">
-				<?php nwp_ui( 'sidebar_trigger', 'nwp_sidebar-trigger-1' ); ?>
+				<!--?php nwp_ui( 'sidebar_trigger', 'nwp_sidebar-trigger-1' ); ?-->
+				<?php
+					$trg1 = new NavSidebarTrigger( 'trigger-1' );
+					$trg2 = new NavSidebarTrigger( 'trigger-2' );
+
+					$trg1->markup();
+					$trg2->markup();
+				?>
 			</div>
 		</div>
 	</nav>

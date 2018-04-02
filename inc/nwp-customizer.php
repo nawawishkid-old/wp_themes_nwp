@@ -2,15 +2,13 @@
 
 use WPComponent\Bundle;
 
-Bundle::addComponent( new WPComponent\Sidebar( 'sidebar-1' ) );
+Bundle::addComponent( new NavSidebar( 'nav-sidebar-1' ) );
+Bundle::addComponent( new NavTopbar( 'nav-topbar-1' ) );
 Bundle::build();
 
 //add_action( 'customize_register', 'customizer_callback' );
 
 function customizer_callback( $c ) {
-
-	$x = new Sidebar( 'kdkd' );
-	$x->customizer( $c );
 
 	$c->add_section( 'nwp_section' , [
 		'title' => __( 'NWP Theme', 'nwp' ),
