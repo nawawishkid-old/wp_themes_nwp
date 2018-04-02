@@ -13,7 +13,7 @@ $is_nav_sticky = get_theme_mod( 'nwp_class_nav_bar-sticky', 'on' );
 
 <div id="<?php echo $id; ?>" class="nwp_nav-bar-placeholder">
 	<nav class="nwp_nav-bar <?php echo $is_nav_sticky ? 'fixed' : ''; ?>">
-		<div class="px-5 row">
+		<div class="px-3 px-md-5 row no-gutters">
 			<div class="col-6 col-sm-3">
 				<?php nwp_ui( 'brand_name', 'nwp_brand-name-1' ); ?>
 			</div>
