@@ -117,6 +117,9 @@ a.custom-logo-link img {
 	height: 100%;
 	width: auto;
 }
+/* Page */
+li.page_item { list-style: none; }
+ul.children {  }
 
 /************
  * COMPONENTS
@@ -221,8 +224,9 @@ a.custom-logo-link img {
 	height: 100vh;
 	position: fixed;
 	top: 0;
-	background-color: var(--pri);
 	z-index: 10;
+	background-color: var(--pri);
+	overflow: hidden;
 	transition: max-width var(--sidebar-speed);
 }
 .nwp_sidebar > .wrapper {
@@ -237,6 +241,7 @@ a.custom-logo-link img {
 .nwp_sidebar .background {
 	width: 100vw;
 	height: 100vh;
+	display: none;
 	position: absolute;
 	top: 0;
 	background-color: #000;
@@ -250,6 +255,7 @@ a.custom-logo-link img {
 	max-width: 400px;
 }
 .nwp_sidebar.active .background {
+	display: block;
 	opacity: .8;
 	pointer-events: auto;
 }

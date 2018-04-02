@@ -1,7 +1,7 @@
 <?php
 
 function nwp_ui_nav_bar( $id ) {
-$is_nav_sticky = get_theme_mod( 'nwp_class_nav_bar-sticky', 'on' );
+$is_nav_sticky = get_theme_mod( 'nwp_class_nav_bar-sticky', true );
 
 ?>
 <!-- <a href="<?php echo site_url(); ?>">
