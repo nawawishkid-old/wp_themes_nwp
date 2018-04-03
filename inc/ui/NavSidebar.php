@@ -3,6 +3,7 @@
 class NavSidebar extends \WPComponent\Component {
 
 	public $name = 'nav-sidebar';
+	public $settings = ['position'];
 
 	public function __construct( $id ) {
 		parent::__construct( $id );
@@ -15,22 +16,22 @@ class NavSidebar extends \WPComponent\Component {
 			'panel' => $panel
 		]);
 
-		$c->add_setting( $this->settingPrefix . '_position', [
+		$c->add_setting( $this->settings['position'], [
 			'type' => 'theme_mod',
 			'default' => true
 		]);
 
-		$c->add_control( $this->controlPrefix . '_position', [
+		$c->add_control( $this->controlPrefix . 'position', [
 			'type' => 'checkbox',
 			'section' => $this->sectionName,
-			'settings' => $this->settingPrefix . '_position',
+			'settings' => $this->settings['position'],
 			'label' => __( 'Keep side navigation bar on left.' ),
 			'description' => __( 'If unchecked, it will be on the right side of the page.' )
 		]);
 	}
 
 	public function markup() {
-		$side = get_theme_mod( $this->settingPrefix . '_position', false ) ? 'left' : 'right';
+		$side = $this->getMod( 'position', true ) ? 'left' : 'right';
 	?>
 
 		<div data-nwp-id="<?php echo $this->id; ?>" class="nwp_sidebar nwp_bg-pri <?php echo $side; ?>" data-nwp-ui-sidebar>

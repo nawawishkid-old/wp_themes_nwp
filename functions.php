@@ -22,6 +22,7 @@ Bundle::addComponent( new NavTopbar( 'nav-topbar-1' ) );
 Bundle::addComponent( new Page( 'page-1' ) );
 Bundle::addComponent( new PageList( 'page-list-1' ) );
 Bundle::addComponent( new PageList( 'page-list-2' ) );
+Bundle::addComponent( new PostCard( 'post-card-1' ) );
 Bundle::addComponent( new Footer( 'footer-1' ) );
 /**
  * Colors customizer
@@ -179,7 +180,7 @@ Bundle::addCustomizer(function( $c, $panel ) {
 	 */
 });
 
-Bundle::buildCustomizer();
+Bundle::build();
 
 /**
  * Functions

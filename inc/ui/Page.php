@@ -2,6 +2,7 @@
 
 class Page extends \WPComponent\Component {
 	public $name = 'page';
+	public $settings = ['allow-title'];
 
 	public function __construct( $id ) {
 		parent::__construct( $id );
@@ -14,28 +15,26 @@ class Page extends \WPComponent\Component {
 			'panel' => $panel
 		]);
 
-		$c->add_setting( $this->settingPrefix . '_allow-title', [
+		$c->add_setting( $this->settings['allow-title'], [
 			'type' => 'theme_mod',
 			'default' => true
 		]);
 
-		$c->add_control( $this->controlPrefix . '_allow-title', [
+		$c->add_control( $this->controlPrefix . 'allow-title', [
 			'type' => 'checkbox',
 			'section' => $this->sectionName,
-			'settings' => $this->settingPrefix . '_allow-title',
+			'settings' => $this->settings['allow-title'],
 			'label' => __( 'Enable title display.' ),
 			'description' => __( 'If unchecked, the page title will disappear.' )
 		]);
 	}
 
 	public function markup() {
-		$allow_title = get_theme_mod( $this->settingPrefix . '_allow-title', true );
-
 	?>
 
 		<article id="page-<?php the_ID(); ?>">
 			<header>
-				<?php if ( $allow_title ) : ?>
+				<?php if ( $this->getMod( 'allow-title', true ) ) : ?>
 					<h1><?php the_title(); ?></h1>
 				<?php endif; ?>
 			</header>

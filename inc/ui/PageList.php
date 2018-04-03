@@ -12,20 +12,21 @@ class PageList extends \WPComponent\Component {
 
 	public function markup() {
 		$pages = get_pages( ['parent' => 0] );
+		$key = parent::getItemKey();
 	?>
-		<div data-nwp-id="<?php echo $this->id; ?>" class="nwp_page-list">
+		<div data-nwp-id="<?php echo $key; ?>" class="nwp_page-list">
 			<?php
-				$this->markupItem( $pages );
+				$this->markupItem( $pages, $key );
 			?>
 		</div>
 	<?php
 	}
 
-	public function markupItem( $pages ) {
+	public function markupItem( $pages, $key ) {
 		echo '<ul>';
 		foreach ( $pages as $page ) :
 			$subpages = get_pages( ['parent' => $page->ID] );
-			$collapseID = $this->id . '-collapse-' . $page->ID;
+			$collapseID = $key . '-collapse-' . $page->ID;
 			?>
 				<li class="page-item">
 					<div class="clearfix p-2">
@@ -49,7 +50,7 @@ class PageList extends \WPComponent\Component {
 					<?php if ( ! empty( $subpages ) ) : ?>
 						<div class="subpages collapse" id="<?php echo $collapseID; ?>">
 							<div class="py-2 pl-2">
-								<?php $this->markupItem( $subpages ); ?>
+								<?php $this->markupItem( $subpages, $key ); ?>
 							</div>
 						</div>
 					<?php endif; ?>

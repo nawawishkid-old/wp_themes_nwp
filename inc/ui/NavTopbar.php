@@ -2,6 +2,7 @@
 
 class NavTopbar extends \WPComponent\Component {
 	public $name = 'nav-topbar';
+	public $settings = ['sticky'];
 
 	public function __construct( $id ) {
 		parent::__construct( $id );
@@ -14,22 +15,22 @@ class NavTopbar extends \WPComponent\Component {
 			'panel' => $panel
 		]);
 
-		$c->add_setting( $this->settingPrefix . '_sticky', [
+		$c->add_setting( $this->settings['sticky'], [
 			'type' => 'theme_mod',
 			'default' => true
 		]);
 
-		$c->add_control( $this->controlPrefix . '_sticky', [
+		$c->add_control( $this->controlPrefix . 'sticky', [
 			'type' => 'checkbox',
 			'section' => $this->sectionName,
-			'settings' => $this->settingPrefix . '_sticky',
+			'settings' => $this->settings['sticky'],
 			'label' => __( 'Keep top navigation bar stay on top.' ),
 			'description' => __( 'If unchecked, it will not be sticky on the top of the page.' )
 		]);
 	}
 
 	public function markup() {
-		$is_sticky = get_theme_mod( $this->settingPrefix . '_sticky', true ) ? 'fixed' : '';
+		$is_sticky = $this->getMod( 'sticky', true ) ? 'fixed' : '';
 
 	?>
 
