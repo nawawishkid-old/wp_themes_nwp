@@ -119,10 +119,6 @@ input[type="button"] {
  * Bootstrap 4 overriding
  */
 /* Column gutter size */
-.row [class^="col"] {
-	padding-left: .5rem;
-	padding-right: .5rem;
-}
 .btn {
 	padding: 0.2rem 1.25rem;
 }
