@@ -476,14 +476,11 @@ body > footer {
 #comments .thread > .content {
 	border-left: 3px solid rgba(0,0,0,.125);
 }
-.author img {
+#post .author img,
+.post-item .author img {
 	height: 32px;
 	margin-right: .75em;
 	border-radius: 50%;
-}
-.author a {
-	color: var(--pri-dark);
-	font-weight: bold;
 }
 #comments .add-new textarea {
 	min-height: 100px;
