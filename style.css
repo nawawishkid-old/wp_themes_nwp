@@ -33,8 +33,12 @@ I intend to write this stylesheet in a more semantic and readable way.
 
 	--border-radius: .25rem;
 	--border: 1px solid rgba(0,0,0,0.125);
-	--icon-width: 32px;
-	--icon-size: 32px;
+
+	/* Icon size */
+	--icon-size-sm: 16px;
+	--icon-size-md: 24px;
+	--icon-size-lg: 32px;
+	--icon-size-xl: 48px;
 }
 
 /**
@@ -85,9 +89,31 @@ input[type="button"] {
 	color: var(--pri-white);
 	font-weight: bold;
 }
-.bg-light {
-	background-color: ;
+/* Color system */
+/* Background */
+.nwp_bg-pri {
+	background-color: var(--pri);
 }
+.nwp_bg-pri-dark {
+	background-color: var(--pri-dark);
+}
+.nwp_bg-pri *,
+.nwp_bg-pri-dark * {
+	color: var(--pri-white);
+	fill: var(--pri-white);
+}
+.nwp_bg-pri-light {
+	background-color: var(--pri-light);
+}
+.nwp_bg-pri-light * {
+	color: var(--pri-dark);
+	fill: var(--pri-dark);
+}
+/* Text */
+.nwp_text-pri, .nwp_text-pri * { color: var(--pri); fill: var(--pri); }
+.nwp_text-pri-light, .nwp_text-pri-light * { color: var(--pri-light); fill: var(--pri-light); }
+.nwp_text-pri-white, .nwp_text-pri-white * { color: var(--pri-white); fill: var(--pri-white); }
+.nwp_text-pri-dark, .nwp_text-pri-dark * { color: var(--pri-dark); fill: var(--pri-dark); }
 
 /**
  * Bootstrap 4 overriding
@@ -130,9 +156,14 @@ body.home main {
 	margin: 2rem 0;
 }
 /* nwp_icon */
-.nwp_icon,
-.nwp_icon svg { width: var(--icon-width); height: var(--icon-height); }
-.nwp_icon svg { fill: var(--pri-white); }
+.nwp_icon-sm,
+.nwp_icon-sm svg { width: var(--icon-size-sm); }
+.nwp_icon-md,
+.nwp_icon-md svg { width: var(--icon-size-md); }
+.nwp_icon-lg,
+.nwp_icon-lg svg { width: var(--icon-size-lg); }
+.nwp_icon-xl,
+.nwp_icon-xl svg { width: var(--icon-size-xl); }
 /*.nwp_icon svg:hover { fill: var(--black); }*/
 
 /* nwp_nav-bar */
@@ -168,7 +199,7 @@ body.home main {
 	width: 100%;
 	position: relative;
 }
-.nwp_search-bar .nwp_icon {
+.nwp_search-bar [class^="nwp_icon"] {
 	position: absolute;
 	z-index: 10;
 	pointer-events: none;
@@ -180,7 +211,7 @@ body.home main {
 .nwp_search-bar > input {
 	width: 100%;
 	font-size: .88rem;
-	text-indent: var(--icon-width);
+	text-indent: var(--icon-size-lg);
 	border: var(--border);
 	border-radius: var(--border-radius);
 	background-color: var(--pri-white);
@@ -230,7 +261,6 @@ body.home main {
 	position: fixed;
 	top: 0;
 	z-index: 10;
-	background-color: var(--pri);
 	transition: max-width var(--sidebar-speed);
 }
 .nwp_sidebar > .wrapper {
@@ -261,10 +291,6 @@ body.home main {
 	opacity: .8;
 	pointer-events: auto;
 }
-.nwp_sidebar * {
-	color: var(--pri-white);
-	fill: var(--pri-white);
-}
 
 /* nwp_post-card */
 .nwp_post-card {
@@ -294,9 +320,6 @@ body.home main {
 .nwp_page-list ul {
 	padding-left: 0;
 	list-style: none;
-}
-.nwp_page-list .page-item .icon-container {
-	min-width: 20px;
 }
 
 /**
@@ -355,7 +378,6 @@ nav#navBar > div > * {
  */
 body > footer {
 	min-height: 200px;
-	background-color: var(--pri-dark);
 }
 
 /**

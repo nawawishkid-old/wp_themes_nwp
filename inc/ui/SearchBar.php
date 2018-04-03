@@ -34,8 +34,8 @@ class SearchBar extends \WPComponent\Component {
 	?>
 
 		<div data-nwp-id="<?php echo $this->id; ?>" class="nwp_search-bar d-flex align-items-center" data-nwp-ui-search_bar>
-			<span class="nwp_icon h-100">
-				<div class="position-relative d-flex justify-content-center align-items-center h-100 w-100">
+			<span class="nwp_icon-sm h-100 mx-1">
+				<div class="position-relative d-flex justify-content-center align-items-center h-100 w-100 nwp_text-pri-dark">
 					<?php nwp_img( 'icon-magnifier.svg' ); ?>
 				</div>
 			</span>

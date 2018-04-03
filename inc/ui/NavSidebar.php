@@ -33,7 +33,7 @@ class NavSidebar extends \WPComponent\Component {
 		$side = get_theme_mod( $this->settingPrefix . '_position', false ) ? 'left' : 'right';
 	?>
 
-		<div data-nwp-id="<?php echo $this->id; ?>" class="nwp_sidebar <?php echo $side; ?>" data-nwp-ui-sidebar>
+		<div data-nwp-id="<?php echo $this->id; ?>" class="nwp_sidebar nwp_bg-pri <?php echo $side; ?>" data-nwp-ui-sidebar>
 			<div class="wrapper p-3">
 				<section class="pb-3">
 					<?php 

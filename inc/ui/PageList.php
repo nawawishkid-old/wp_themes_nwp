@@ -25,6 +25,7 @@ class PageList extends \WPComponent\Component {
 		echo '<ul>';
 		foreach ( $pages as $page ) :
 			$subpages = get_pages( ['parent' => $page->ID] );
+			$collapseID = $this->id . '-collapse-' . $page->ID;
 			?>
 				<li class="page-item">
 					<div class="clearfix p-2">
@@ -34,19 +35,19 @@ class PageList extends \WPComponent\Component {
 							<?php echo $page->post_title; ?>
 						</a>
 						<?php if ( ! empty( $subpages ) ) : ?>
-							<a href="#collapse-<?php echo $page->ID; ?>" 
-							   class="float-right icon-container"
+							<a href="#<?php echo $collapseID; ?>" 
+							   class="float-right nwp_icon-sm"
 							   role="button" 
 							   data-toggle="collapse" 
 							   aria-expanded="false" 
-							   aria-controls="collapse-<?php echo $page->ID; ?>"
+							   aria-controls="<?php echo $collapseID; ?>"
 							>
 								<?php nwp_img( 'icon-down-arrow.svg' ); ?>
 							</a>
 						<?php endif; ?>
 					</div>
 					<?php if ( ! empty( $subpages ) ) : ?>
-						<div class="subpages collapse" id="collapse-<?php echo $page->ID; ?>">
+						<div class="subpages collapse" id="<?php echo $collapseID; ?>">
 							<div class="py-2 pl-2">
 								<?php $this->markupItem( $subpages ); ?>
 							</div>

@@ -19,6 +19,8 @@ Bundle::addComponent( new NavSidebar( 'nav-sidebar-1' ) );
 Bundle::addComponent( new NavTopbar( 'nav-topbar-1' ) );
 Bundle::addComponent( new Page( 'page-1' ) );
 Bundle::addComponent( new PageList( 'page-list-1' ) );
+Bundle::addComponent( new PageList( 'page-list-2' ) );
+Bundle::addComponent( new Footer( 'footer-1' ) );
 Bundle::buildCustomizer();
 
 add_action( 'widgets_init', 'arphabet_widgets_init' );
