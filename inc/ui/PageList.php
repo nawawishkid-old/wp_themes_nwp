@@ -26,8 +26,8 @@ class PageList extends \WPComponent\Component {
 		foreach ( $pages as $page ) :
 			$subpages = get_pages( ['parent' => $page->ID] );
 			?>
-				<li class="">
-					<div class="clearfix">
+				<li class="page-item">
+					<div class="clearfix p-2">
 						<a href="<?php echo $page->guid; ?>"
 						   class="float-left"
 						>
@@ -35,17 +35,21 @@ class PageList extends \WPComponent\Component {
 						</a>
 						<?php if ( ! empty( $subpages ) ) : ?>
 							<a href="#collapse-<?php echo $page->ID; ?>" 
-							   class="float-right"
+							   class="float-right icon-container"
 							   role="button" 
 							   data-toggle="collapse" 
 							   aria-expanded="false" 
 							   aria-controls="collapse-<?php echo $page->ID; ?>"
-							>v</a>
+							>
+								<?php nwp_img( 'icon-down-arrow.svg' ); ?>
+							</a>
 						<?php endif; ?>
 					</div>
 					<?php if ( ! empty( $subpages ) ) : ?>
-						<div class="subpages collapse py-2 pl-2" id="collapse-<?php echo $page->ID; ?>">
-							<?php $this->markupItem( $subpages ); ?>
+						<div class="subpages collapse" id="collapse-<?php echo $page->ID; ?>">
+							<div class="py-2 pl-2">
+								<?php $this->markupItem( $subpages ); ?>
+							</div>
 						</div>
 					<?php endif; ?>
 				</li>

@@ -43,7 +43,7 @@ class NavSidebar extends \WPComponent\Component {
 					<h1 class="header"><?php _e( 'Menu', 'nwp' ); ?></h1>
 				</section>
 				<section class="pb-3">
-					<?php get_sidebar(); ?>
+					<?php //get_sidebar(); ?>
 					<?php \WPComponent\Bundle::getComponent( 'page-list-1' ); ?>
 				</section>
 			</div>
