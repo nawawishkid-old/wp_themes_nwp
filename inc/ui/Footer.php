@@ -33,7 +33,7 @@ class Footer extends \WPComponent\Component {
 		?>
 
 			<footer class="nwp_bg-pri-dark px-2 px-sm-3 py-3">
-				<div class="row">
+				<div class="row no-gutters">
 					<div class="col-12 col-sm-6 col-md-4">
 						<?php \WPComponent\Bundle::getComponent( 'page-list-2' ); ?>
 					</div>

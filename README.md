@@ -39,9 +39,15 @@
 # Bugs
 - [ ] Post permalink with Thai language does not use single.php template.
 - [x] Cannot get author page url
-- [ ] No comment but display as 1 comment in "การทดสอบหมายเลข 3"
+- [x] No comment but display as 1 comment in "การทดสอบหมายเลข 3"
 
 # TODO
+## CSS
+- [ ] Set default HTML Header text relative to var(--font-size)
+
+## Customizer
+- [ ] Must sanitize custom customizer name
+
 ## Comments
 - [x] Find a way to add cancel button beside submit button in the form.
 - [x] Remove form DOM from comment when click cancel button.

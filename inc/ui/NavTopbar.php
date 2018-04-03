@@ -33,8 +33,8 @@ class NavTopbar extends \WPComponent\Component {
 
 	?>
 
-		<div data-nwp-id="<?php echo $this->id; ?>" class="nwp_nav-bar-placeholder nwp_bg-pri">
-			<nav class="nwp_nav-bar <?php echo $is_sticky; ?>">
+		<div data-nwp-id="<?php echo $this->id; ?>" class="nwp_nav-bar-placeholder">
+			<nav class="nwp_nav-bar  nwp_bg-pri <?php echo $is_sticky; ?>">
 				<div class="px-3 px-md-5 row no-gutters">
 					<div class="col-6 col-sm-3">
 						<?php nwp_ui( 'brand_name', 'nwp_brand-name-1' ); ?>

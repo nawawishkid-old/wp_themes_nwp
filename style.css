@@ -17,7 +17,7 @@ I intend to write this stylesheet in a more semantic and readable way.
 	/* color */
 	/* --pri may be this: #2a6592 */
 	--pri: #00395f; /*rgb(0, 150, 255);*/ /*#0087BD;*/
-	--pri-light: #eef1f3; /*rgb(0, 170, 255);*/
+	--pri-light: #0167ab; /*rgb(0, 170, 255);*/
 	--pri-dark: #001e31; /*rgb(0, 120, 200);*/
 	--pri-white: #f8fcfd; /*rgb(248, 252, 253);*/
 	/*--pri-black: rgb(0, 30, 49);*/
@@ -168,7 +168,7 @@ body.home main {
 }
 .nwp_nav-bar {
 	width: 100%;
-	background-color: var(--pri);
+	/*background-color: var(--pri);*/
 }
 .nwp_nav-bar.fixed {
 	position: fixed;

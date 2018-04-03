@@ -6,6 +6,7 @@ class Bundle {
 	public static $panelName = 'wp-component';
 	public static $components = [];
 	public static $componentKeys = [];
+	public static $customizer = [];
 
 	public static function buildCustomizer() {
 		\add_action( 'customize_register', function( $c ) {
@@ -16,8 +17,14 @@ class Bundle {
 				'capability' => 'edit_theme_options',
 			]);
 
+			// Customizer from Component
 			foreach ( self::$components as $comp ) {
 				$comp->customizer( $c, self::$panelName );
+			}
+
+			// Customizer alone
+			foreach ( self::$customizer as $customizer ) {
+				call_user_func_array( $customizer, [ $c, self::$panelName ] );
 			}
 		});
 	}
@@ -32,5 +39,9 @@ class Bundle {
 
 	public static function getComponent( $id ) {
 		return self::$components[$id]->markup();
+	}
+
+	public static function addCustomizer( $callback ) {
+		self::$customizer[] = $callback;
 	}
 }
