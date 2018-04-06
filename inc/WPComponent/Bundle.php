@@ -40,8 +40,8 @@ class Bundle {
 		self::$components[$comp->id] = $comp;
 	}
 
-	public static function getComponent( $id ) {
-		return self::$components[$id]->markup();
+	public static function getComponent( $id, $param = null ) {
+		return self::$components[$id]->markup( $param );
 	}
 
 	public static function addCustomizer( $callback ) {

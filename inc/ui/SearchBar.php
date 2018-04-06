@@ -28,7 +28,7 @@ class SearchBar extends \WPComponent\Component {
 		// ]);
 	}
 
-	public function markup() {
+	public function markup( $param = null ) {
 		// $is_sticky = get_theme_mod( $this->settingPrefix . '_sticky', true ) ? 'fixed' : '';
 
 	?>

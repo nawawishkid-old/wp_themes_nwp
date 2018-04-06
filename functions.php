@@ -15,7 +15,7 @@ autoload( __DIR__ . '/inc/*.php', [
 add_action( 'widgets_init', 'arphabet_widgets_init' );
 
 /**
- * Register UI Component, its customizer, and global customizer
+ * Register UI Component and its customizer.
  */
 Bundle::addComponent( new NavSidebar( 'nav-sidebar-1' ) );
 Bundle::addComponent( new NavTopbar( 'nav-topbar-1' ) );
@@ -24,6 +24,13 @@ Bundle::addComponent( new PageList( 'page-list-1' ) );
 Bundle::addComponent( new PageList( 'page-list-2' ) );
 Bundle::addComponent( new PostCard( 'post-card-1' ) );
 Bundle::addComponent( new Footer( 'footer-1' ) );
+Bundle::addComponent( new CommentMolecule( 'comment-molecule-1' ) );
+Bundle::addComponent( new CommentOrganism( 'comment-organism-1' ) );
+Bundle::addComponent( new CommentReplyMolecule( 'comment-reply-molecule-1' ) );
+
+/**
+ * Add global customizer
+ */
 /**
  * Colors customizer
  */

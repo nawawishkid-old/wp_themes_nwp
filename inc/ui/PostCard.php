@@ -30,7 +30,7 @@ class PostCard extends \WPComponent\Component {
 		// ]);
 	}
 
-	public function markup() {
+	public function markup( $param = null ) {
 	?>
 
 		<div data-nwp-id="<?php echo parent::getItemKey(); ?>" class="nwp_post-card mb-3 px-3 mx-auto">

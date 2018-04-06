@@ -29,7 +29,7 @@ class Page extends \WPComponent\Component {
 		]);
 	}
 
-	public function markup() {
+	public function markup( $param = null ) {
 	?>
 
 		<article id="page-<?php the_ID(); ?>">

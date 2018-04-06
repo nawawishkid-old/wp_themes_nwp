@@ -10,7 +10,7 @@ class PageList extends \WPComponent\Component {
 
 	public function customizer( $c, $panel ) {}
 
-	public function markup() {
+	public function markup( $param = null ) {
 		$pages = get_pages( ['parent' => 0] );
 		$key = parent::getItemKey();
 	?>
@@ -29,7 +29,7 @@ class PageList extends \WPComponent\Component {
 			$collapseID = $key . '-collapse-' . $page->ID;
 			?>
 				<li class="page-item">
-					<div class="clearfix p-2">
+					<div class="clearfix py-2">
 						<a href="<?php echo $page->guid; ?>"
 						   class="float-left"
 						>

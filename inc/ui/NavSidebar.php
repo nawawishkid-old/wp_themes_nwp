@@ -30,7 +30,7 @@ class NavSidebar extends \WPComponent\Component {
 		]);
 	}
 
-	public function markup() {
+	public function markup( $param = null ) {
 		$side = $this->getMod( 'position', true ) ? 'left' : 'right';
 	?>
 

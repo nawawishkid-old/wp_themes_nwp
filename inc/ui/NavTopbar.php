@@ -29,7 +29,7 @@ class NavTopbar extends \WPComponent\Component {
 		]);
 	}
 
-	public function markup() {
+	public function markup( $param = null ) {
 		$is_sticky = $this->getMod( 'sticky', true ) ? 'fixed' : '';
 
 	?>

@@ -17,7 +17,7 @@ abstract class Component {
 	/* int */
 	protected $counter = 0;
 
-	abstract public function markup();
+	abstract public function markup( $param = null );
 	abstract public function customizer( $c, $panel );
 
 	public function __construct( $id ) {

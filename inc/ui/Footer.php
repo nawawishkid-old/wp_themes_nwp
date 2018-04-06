@@ -29,19 +29,19 @@ class Footer extends \WPComponent\Component {
 		// ]);
 	}
 
-	public function markup() {
+	public function markup( $param = null ) {
 		?>
 
-			<footer class="nwp_bg-pri-dark px-2 px-sm-3 py-3">
+			<footer class="nwp_bg-pri-dark p-3">
 				<div class="row no-gutters">
 					<div class="col-12 col-sm-6 col-md-4">
 						<?php \WPComponent\Bundle::getComponent( 'page-list-2' ); ?>
 					</div>
-					<div class="col-12 col-sm-6 col-md-4">
+					<div class="col-12 col-sm-6 col-md-4 py-2">
 						Col 2
 					</div>
-					<div class="col-12 col-sm-6 col-md-4">
-						col 3
+					<div class="col-12 col-sm-6 col-md-4 py-2">
+						Col 3
 					</div>
 				</div>
 				<div></div>

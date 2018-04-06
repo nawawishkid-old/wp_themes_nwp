@@ -7,6 +7,7 @@ add_action( 'wp_enqueue_scripts', function() {
 	// see https://developer.wordpress.org/themes/advanced-topics/javascript-best-practices/#use-included-libraries
 	// wp_deregister_script( 'jquery' );
 	// wp_enqueue_script( 'nwp-jquery', $dir . 'js/jquery.min.js' );
+	wp_enqueue_script( 'jquery' );
 
 	wp_enqueue_script( 'nwp-bootstrap', $dir . 'js/bootstrap.min.js' );
 	wp_enqueue_style( 'nwp-bootstrap', $dir . 'css/bootstrap.min.css' );

@@ -29,7 +29,7 @@ class NavSidebarTrigger extends \WPComponent\Component {
 		]);*/
 	}
 
-	public function markup() {
+	public function markup( $param = null ) {
 		//$side = get_theme_mod( $this->settingPrefix . '_position', false ) ? 'left' : 'right';
 	?>
 
