@@ -37,17 +37,17 @@ class NavTopbar extends \WPComponent\Component {
 		<div data-nwp-id="<?php echo $this->id; ?>" class="nwp_nav-bar-placeholder">
 			<nav class="nwp_nav-bar  nwp_bg-pri <?php echo $is_sticky; ?>">
 				<div class="px-3 px-md-5 row no-gutters">
-					<div class="col-6 col-sm-3">
+					<div class="col-8 col-sm-4">
 						<?php nwp_ui( 'brand_name', 'nwp_brand-name-1' ); ?>
 					</div>
-					<div class="d-none d-sm-flex col-sm-6 justify-content-center">
+					<div class="d-none d-sm-flex col-sm-4 justify-content-center">
 						<?php 
 							$search_bar = new SearchBar( 'searchbar-1' );
 							$search_bar->markup();
 						?>
 						<!--?php nwp_ui( 'search_bar', 'nwp_search-bar-1' ); ?-->
 					</div>
-					<div class="col-6 col-sm-3 justify-content-end">
+					<div class="col-4 col-sm-4 justify-content-end">
 						<!--?php nwp_ui( 'sidebar_trigger', 'nwp_sidebar-trigger-1' ); ?-->
 						<?php
 							$trg1 = new NavSidebarTrigger( 'trigger-1' );
